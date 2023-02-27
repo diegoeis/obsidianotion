@@ -1,34 +1,186 @@
-body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+/*───────────────────────────────────────────────────────
+OBSIDIANOTION
+Version 1.0
+Created by @diegoeis
+
+Readme:
+https://github.com/diegoeis/obisidianotion
+────────────────────────────────────────────────────── */
+
+
+/* ─────────────────────────────────────────────────── */
+/* Main Theme Styling */
+/* ─────────────────────────────────────────────────── */
+
+@charset "UTF-8";
+
+
+:root {
+  --header-height: 300px;
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
-	display: none;
+.HyperMD-header.HyperMD-header-1.cm-line {
+  font-size: 40px !important;
+  color: rgb(55, 53, 47);
 }
 
-svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
+/* .HyperMD-header.HyperMD-header-1.cm-line:nth-child(1),
+.HyperMD-header.HyperMD-header-1.cm-line:nth-child(2),
+.HyperMD-header.HyperMD-header-1.cm-line:nth-child(3),
+.HyperMD-header.HyperMD-header-1.cm-line:nth-child(4),
+.HyperMD-header.HyperMD-header-1.cm-line:nth-child(5) {display: none;} */
+
+/* .HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2) !important;}
+.HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3) !important;}
+.HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4) !important;}
+.HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5) !important;}
+.HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6) !important;}
+.markdown-source-view.mod-cm6 .cm-scroller {font-size: var(--font-paragraph) !important;} */
+
+/* .markdown-source-view.mod-cm6.is-readable-line-width .cm-content,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line */
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
+  width: 710px !important;
+  margin: 0 auto
+}
+
+.markdown-source-view.mod-cm6 .cm-editor {background-color: white !important;}
+
+.nav-folder-title:first {font-size: .8rem; color: rgba(0, 0, 0, .5) !important;}
+
+/****
+FRONTMATTER
+****/
+.cm-def.cm-hmd-frontmatter, .cm-hmd-frontmatter {
+  color: rgba(0, 0, 0, .5) !important;
+  font-size: .7rem;
+}
+
+.cm-atom.cm-hmd-frontmatter {font-weight: bold; color: rgba(0, 0, 0, .55) !important}
+
+
+
+/*****
+SIDEBAR 
+****/
+
+.workspace-ribbon,
+.workspace-tabs,
+.workspace-tab-container,
+.workspace-tab-container .workspace-leaf,
+.workspace-ribbon.mod-left:before,
+.workspace-tab-header-container,
+.sidebar-toggle-button.mod-right {
+  background-color: #F7F7F5 !important;
+}
+.workspace-ribbon.mod-left:before{border-color: #F7F7F5}
+
+.mod-root .workspace-tabs .workspace-leaf {background-color: white !important;}
+
+
+.view-content,
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container,
+.workspace {
+  background-color: transparent !important;
+}
+
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle
+.workspace-ribbon {
+  border-color: #F1F1EF !important;
+}
+.workspace-ribbon, .workspace-tab-header, .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid #F1F1EF; }
+.workspace-tab-header-container {border: none}
+.workspace-tab-header.is-active {box-shadow: none;}
+.workspace-tab-header {border-radius: 0;}
+
+/* .workspace-ribbon.mod-left.is-collapsed {display: none;} */
+
+.workspace-tab-header-inner:after,
+.workspace-split.mod-root .workspace-tab-header.is-active::after,
+.workspace-split.mod-root .workspace-tab-header.is-active::before {display: none;}
+
+
+/** order of tab bar **/
+/* .workspace-tab-header-tab-list {order:1;}
+.workspace-tab-header-new-tab {order: 2; margin-left: 0; margin-right: 0;}
+.workspace-tab-header-container-inner {order:3;} */
+
+.clickable-icon {color: #B9B8B5; }
+
+.workspace-leaf-content .view-content::-webkit-scrollbar,
+.mk-file-tree > div::-webkit-scrollbar {
+  width: 12px;
+}
+
+.workspace-leaf-content .view-content::-webkit-scrollbar-track,
+.mk-file-tree > div::-webkit-scrollbar-track {
+  background: #EDECE9;
+}
+
+.workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
+.mk-file-tree > div::-webkit-scrollbar-thumb {
+  background-color: #D3D1CC;
+  border-radius: 0;
+  border: 0px;
+}
+
+.tree-item-self.is-clickable:hover,
+.search-result-file-matches {background-color: #E8E8E6;}
+
+.tree-item-self.is-clickable:hover,
+.search-result-file-matches,
+.nav-file-title,
+body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
+
+.nav-folder-title,
+.nav-folder-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {font-weight: bold;}
+
+
+/*** MAKE.md Plugin custom ***/
+div.mk-header.cm-line {padding-bottom: 50px !important;}
+.mk-header .mk-file-context-file .mk-file-icon,
+.mk-header .mk-file-icon button {
+  width: 70px; 
+  height: 70px;
+}
+
+.mk-header .mk-file-context-file .mk-file-icon {
+  /* margin-bottom: 15px; */
+  transform: translate(0, -19px);
+}
+
+.mk-header .mk-file-icon button {font-size: 70px;}
+
+.mk-file-context-file > .mk-inline-title.inline-title {display: none !important;}
+
+.mk-file-context-collapse {left: -25px; top: 95px;cursor: pointer;}
+.mk-header .mk-file-context-collapse.mk-collapsed svg {color: rgba(0, 0, 0, .2);}
+
+.mk-collapse.mk-icon-xsmall.mk-file-context-collapse.mk-collapsed:after {
+  content: "Collapsed";
+  color: rgba(0, 0, 0, .2)
 }
 
 .menu {
-	padding: var(--size-2-1);
+  background: #fff;
+  border-radius: 5px;
 }
 
-.menu-item {
-	padding: var(--size-4-1) var(--size-4-2);
+.mk-menu-input input {
+  /* display: flex;
+  align-items: center; */
+  width: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 3px 6px;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  background: rgba(242, 241, 238, 0.6);
+  cursor: text;
+  height: 28px;
 }
 
-.menu-separator {
-	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
-}
+.mk-options-menu__suggestions {overflow-x: hidden;}
