@@ -1,0 +1,312 @@
+/*───────────────────────────────────────────────────────
+OBSIDIANOTION
+Version 1.0
+Created by @diegoeis
+
+Readme:
+https://github.com/diegoeis/obisidianotion
+────────────────────────────────────────────────────── */
+
+
+/* ─────────────────────────────────────────────────── */
+/* Main Theme Styling */
+/* ─────────────────────────────────────────────────── */
+
+@charset "UTF-8";
+
+:root {
+  --header-height: 300px;
+
+  --lightBorderColor: rgba(0, 0, 0, .03);
+  
+  /*** dark mode variables **/
+  --darkBorderColor: rgba(255, 255, 255, .03);
+
+
+  /*** All typos ***/
+  --size-h1: 2.4rem;
+  --size-h2: 1.92rem;
+  --size-h3: 1.53rem;
+  --size-h4: 1.22rem;
+  --size-h5: .97rem;
+  --size-h6: .77rem;
+  --font-paragraph: 1rem;
+  --front-matter-font-size: .65rem;
+
+}
+
+/*****
+  VIEW CONTENT 
+*****/
+.theme-dark .view-content .cm-editor {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1);}
+.HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
+.HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
+.HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
+.HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5);}
+.HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6);}
+.markdown-source-view.mod-cm6 .cm-contentContainer {font-size: var(--font-paragraph) !important; line-height: 1.5;}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
+  width: 710px !important;
+  margin: 0 auto
+}
+
+.nav-folder-title:first {font-size: .8rem; color: rgba(0, 0, 0, .5) !important;}
+
+/****
+CUSTOM FRONTMATTER
+****/
+.cm-line {clear: left;}
+
+.cm-hmd-frontmatter {
+  /* float: left; */
+  display: inline-block;
+  vertical-align: top;
+  font-size: var(--front-matter-font-size);
+  /* white-space: nowrap; */
+  color: rgba(0, 0, 0, .9);
+  text-overflow: hidden;
+}
+
+.cm-atom.cm-hmd-frontmatter {
+  clear: both;
+  min-width: 110px;
+  max-width: 300px;
+  color: rgba(0, 0, 0, .5);
+}
+
+.theme-dark .cm-atom.cm-hmd-frontmatter,
+.theme-dark .cm-def.cm-hmd-frontmatter {color: rgba(255, 255, 255, .4) !important;}
+
+.cm-hmd-frontmatter ~ .cm-hmd-frontmatter {
+  /* min-width: auto;
+  margin-bottom: 0px; */
+}
+
+.cm-hmd-frontmatter:last-child {
+  max-width: 500px;
+  overflow-wrap: break-word;
+}
+
+.cm-def.cm-hmd-frontmatter {
+  color: rgba(0, 0, 0, .15) !important;
+  font-size: .7rem;
+}
+
+.cm-line:hover .cm-hmd-frontmatter {cursor: default; color: rgba(0, 0, 0, .8);}
+
+
+.cm-active .cm-hmd-frontmatter {
+  background: rgba(0, 0, 0, .15);
+  color: rgba(0, 0, 0, .8);
+}
+
+.cm-active .cm-atom.cm-hmd-frontmatter,
+.cm-active .cm-atom + .cm-hmd-frontmatter.cm-meta {
+  background-color: rgba(0, 0, 0, .05); 
+  font-weight: bold; 
+  color: rgba(0, 0, 0, .6);
+} 
+
+
+/*****
+CUSTOM LEFT SIDEBAR 
+****/
+
+.nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
+  font-size: 1.5rem;
+  padding: 10px 0 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-bottom:1px solid rgba(0, 0, 0, .1)
+}
+
+.theme-dark .nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
+  border-bottom:1px solid rgba(255, 255, 255, .1)
+}
+
+.workspace-ribbon,
+.workspace-tabs,
+.workspace-tab-container,
+.workspace-tab-container .workspace-leaf,
+.workspace-ribbon.mod-left:before,
+.workspace-tab-header-container,
+.sidebar-toggle-button.mod-right {
+  background-color: #F7F7F5 !important;
+}
+.workspace-ribbon.mod-left:before{border-color: #F7F7F5}
+
+.mod-root .workspace-tabs .workspace-leaf {background-color: white !important;}
+
+.workspace-tab-header.is-active.mod-active {background: white !important}
+.theme-dark .workspace-tab-header.is-active.mod-active {background: rgba(255,255,255, .07) !important}
+
+.theme-dark .workspace-ribbon,
+.theme-dark .workspace-tabs,
+.theme-dark .workspace-tab-container,
+.theme-dark .workspace-tab-container .workspace-leaf,
+.theme-dark .workspace-ribbon.mod-left:before,
+.theme-dark .workspace-tab-header-container,
+.theme-dark .sidebar-toggle-button.mod-right {
+  background-color: rgb(32, 32, 32) !important;
+}
+
+.theme-dark .workspace-ribbon.mod-left:before{border-color: var(--darkBorderColor);}
+
+
+/** items of nav-file three **/
+.nav-file-title,
+.tree-item-inner {
+  color: #72716D;
+}
+
+
+/** border-right of sidebar **/
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle
+.workspace-ribbon {
+  border-color: var(--lightBorderColor) !important;
+}
+
+.theme-dark .workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
+.theme-dark .workspace-split.mod-right-split > .workspace-leaf-resize-handle
+.theme-dark .workspace-ribbon {
+  border-color: var(--darkBorderColor) !important;
+}
+
+/** border-right of icons bar **/
+.workspace-ribbon, .workspace-tab-header, .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--lightBorderColor); }
+.theme-dark .workspace-ribbon, .theme-dark .workspace-tab-header, .theme-dark .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--darkBorderColor); }
+
+/** neutralizing other backgrounds **/
+.view-content,
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container,
+.workspace {
+  background-color: transparent !important;
+}
+
+/** divider of panel bottom sidebar **/
+.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle {border-color: var(--lightBorderColor)}
+
+/*** SEARCH RESULTS ***/
+.search-result-file-matches,
+.tree-item.search-result .tree-item-icon.collapse-icon {
+  display: none;
+}
+
+
+/*** 
+  TAB BAR HEADER
+***/
+.workspace-tab-header-container {border: none}
+.workspace-tab-header.is-active {box-shadow: none;}
+.workspace-tab-header {border-radius: 0;}
+
+.workspace-tab-header-inner:after,
+.workspace-split.mod-root .workspace-tab-header.is-active::after,
+.workspace-split.mod-root .workspace-tab-header.is-active::before {display: none;}
+
+.clickable-icon {color: #B9B8B5; }
+
+/** scroll bars **/
+.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar,
+.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar
+.workspace-leaf-content .view-content::-webkit-scrollbar,
+.mk-file-tree > div::-webkit-scrollbar {
+  width: 12px;
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar-track,
+.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-track,
+.workspace-leaf-content .view-content::-webkit-scrollbar-track,
+.mk-file-tree > div::-webkit-scrollbar-track {
+  background: #EDECE9;
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar-thumb,
+.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-thumb,
+.workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
+.mk-file-tree > div::-webkit-scrollbar-thumb {
+  background-color: #D3D1CC;
+  border-radius: 0;
+  border: 0px;
+}
+
+.theme-dark .view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-track,
+.theme-dark .workspace-leaf-content .view-content::-webkit-scrollbar-track,
+.theme-dark .mk-file-tree > div::-webkit-scrollbar-track {background: #272727;}
+
+.theme-dark .view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-thumb,
+.theme-dark .workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
+.theme-dark .mk-file-tree > div::-webkit-scrollbar-thumb {background-color: #484C50; }
+
+.tree-item-self.is-clickable:hover,
+.search-result-file-matches {background-color: #E8E8E6;}
+
+.tree-item-self.is-clickable:hover,
+.search-result-file-matches,
+.nav-file-title,
+body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
+
+.nav-folder-title,
+.nav-folder-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {font-weight: bold;}
+
+
+/*** 
+MAKE.md Plugin custom 
+***/
+div.mk-header.cm-line {padding-bottom: 50px !important;}
+.mk-header .mk-file-context-file .mk-file-icon,
+.mk-header .mk-file-icon button {
+  width: 70px; 
+  height: 70px;
+}
+
+.mk-header .mk-file-context-file .mk-file-icon {
+  transform: translate(0, -19px);
+}
+
+.mk-header .mk-file-icon button {font-size: 70px;}
+
+/** hidding the inline title of the context option make.md **/
+.mk-file-context-file .mk-inline-title.inline-title,
+.markdown-source-view.mod-cm6.is-readable-line-width .mk-file-context-file > .mk-inline-title.inline-title {display: none !important;}
+
+.mk-file-context-collapse {left: -25px; top: 95px;cursor: pointer;}
+.mk-header .mk-file-context-collapse.mk-collapsed svg {color: rgba(0, 0, 0, .2);}
+
+.mk-collapse.mk-icon-xsmall.mk-file-context-collapse.mk-collapsed:after {
+  content: "Collapsed";
+  color: rgba(0, 0, 0, .2)
+}
+
+.menu {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.mk-menu-input input {
+  width: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 3px 6px;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  background: rgba(242, 241, 238, 0.6);
+  cursor: text;
+  height: 28px;
+}
+
+.mk-options-menu__suggestions {overflow-x: hidden;}
+
+.cm-line.mk-placeholder:before {
+  font-size: .9rem !important;
+  top: 2px;
+  cursor: default;
+}
