@@ -106,7 +106,7 @@ CUSTOM FRONTMATTER
 }
 
 .cm-active .cm-atom.cm-hmd-frontmatter,
-.cm-active .cm-hmd-frontmatter.cm-meta {
+.cm-active .cm-atom + .cm-hmd-frontmatter.cm-meta {
   background-color: rgba(0, 0, 0, .05); 
   font-weight: bold; 
   color: rgba(0, 0, 0, .6);
@@ -162,7 +162,6 @@ CUSTOM LEFT SIDEBAR
 .nav-file-title,
 .tree-item-inner {
   color: #72716D;
-  padding: 5px 10px;
 }
 
 
