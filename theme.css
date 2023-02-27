@@ -60,49 +60,36 @@ https://github.com/diegoeis/obisidianotion
 /****
 CUSTOM FRONTMATTER
 ****/
-  
-/* .cm-hmd-frontmatter:first-child {display: inline-table;} */
-
-.cm-atom.cm-hmd-frontmatter + .cm-hmd-frontmatter.cm-meta {
-  /* color: transparent; */
-  /* width: 50px; */
-  color: rgba(0, 0, 0, .2);
-  /* text-align: center; */
-}
-.cm-atom.cm-hmd-frontmatter + .cm-hmd-frontmatter.cm-meta:before {
-  /* content: ": "; 
-  color: rgba(0, 0, 0, .2); */
-  /* outline: 1px solid red; */
-}
+.cm-line {clear: left;}
 
 .cm-hmd-frontmatter {
+  /* float: left; */
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: var(--front-matter-font-size);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: rgba(0, 0, 0, .6);
+  /* white-space: nowrap; */
+  color: rgba(0, 0, 0, .9);
+  text-overflow: hidden;
 }
 
 .cm-atom.cm-hmd-frontmatter {
+  clear: both;
   min-width: 110px;
   max-width: 300px;
-  overflow: hidden;
-  color: rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, .5);
 }
 
 .theme-dark .cm-atom.cm-hmd-frontmatter,
 .theme-dark .cm-def.cm-hmd-frontmatter {color: rgba(255, 255, 255, .4) !important;}
 
 .cm-hmd-frontmatter ~ .cm-hmd-frontmatter {
-  min-width: auto;
+  /* min-width: auto;
+  margin-bottom: 0px; */
 }
 
 .cm-hmd-frontmatter:last-child {
-  width: auto;
-  max-width: 350px;
-  min-width: auto;
-  overflow: hidden;
+  max-width: 500px;
+  overflow-wrap: break-word;
 }
 
 .cm-def.cm-hmd-frontmatter {
@@ -111,14 +98,19 @@ CUSTOM FRONTMATTER
 }
 
 .cm-line:hover .cm-hmd-frontmatter {cursor: default; color: rgba(0, 0, 0, .8);}
-.cm-line.cm-active .cm-hmd-frontmatter {cursor: text;}
 
 
-.cm-active .cm-hmd-frontmatter:not(.cm-atom.cm-hmd-frontmatter, .cm-atom.cm-hmd-frontmatter + .cm-hmd-frontmatter.cm-meta) {
-  background: rgba(0, 0, 0, .05);
+.cm-active .cm-hmd-frontmatter {
+  background: rgba(0, 0, 0, .15);
   color: rgba(0, 0, 0, .8);
 }
-.cm-active .cm-atom.cm-hmd-frontmatter {font-weight: bold; color: rgba(0, 0, 0, .6);}
+
+.cm-active .cm-atom.cm-hmd-frontmatter,
+.cm-active .cm-hmd-frontmatter.cm-meta {
+  background-color: rgba(0, 0, 0, .05); 
+  font-weight: bold; 
+  color: rgba(0, 0, 0, .6);
+} 
 
 
 /*****
