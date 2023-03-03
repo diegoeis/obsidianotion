@@ -14,6 +14,7 @@ Just look for Obsidianotion in Settings > Appearance > Manage button
 The banner in this image was inserted using [Banner Plugin](https://github.com/noatpad/obsidian-banners).
 
 ![](cover-banner.png)
+![](dark-version.png)
 
 This theme works very good using [Make.md plugin](https://github.com/Make-md/makemd).
 
