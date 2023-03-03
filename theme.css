@@ -33,6 +33,14 @@ https://github.com/diegoeis/obisidianotion
   --font-paragraph: 1rem;
   --front-matter-font-size: .65rem;
 
+  --colorBlack: rgb(0, 0, 0);
+
+  /*** Color ***/
+  --nav-item-background-active: rgba(0, 0, 0, 0.04);
+  --nav-item-background-hover:  rgba(0, 0, 0, 0.08);
+  --nav-item-color: #72716D;
+
+  --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
 
 /*****
@@ -126,7 +134,7 @@ CUSTOM FRONTMATTER
 /*****
 CUSTOM LEFT SIDEBAR 
 ****/
-
+.clickable-icon.side-dock-ribbon-action {cursor:pointer;}
 .nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
   font-size: 1.5rem;
   padding: 10px 0 20px;
@@ -172,11 +180,19 @@ CUSTOM LEFT SIDEBAR
 .nav-file-title,
 .nav-folder.is-collapsed .nav-folder-title,
 .tree-item-inner {
-  color: #72716D;
+  /* color: var(--nav-item-color); */
+  color: rgba(25, 23, 17, .6);
 }
 
-.nav-folder .nav-folder-title {background-color: var(--nav-item-background-hover);}
+.nav-folder .nav-folder-title,
+.nav-folder .nav-file-title.is-active {
+  background-color: rgba(0, 0, 0, .04);
+}
+
+.nav-folder .nav-folder-title:hover,
+.nav-folder .nav-file-title:hover {background-color: rgba(0, 0, 0, .08);}
 .nav-folder.is-collapsed .nav-folder-title {background-color: inherit;}
+
 
 .nav-folder .nav-folder-title {
   color: #373530;
