@@ -63,7 +63,13 @@ https://github.com/diegoeis/obisidianotion
   margin: 0 auto
 }
 
-.nav-folder.mod-root > .nav-folder-title {background-color: transparent !important; font-size: .8rem; color: rgba(0, 0, 0, .5) !important;}
+.nav-folder.mod-root > .nav-folder-title {
+  background-color: transparent !important; 
+  font-size: .8rem; 
+  color: rgba(0, 0, 0, .5) !important;
+}
+
+.theme-dark .nav-folder.mod-root > .nav-folder-title {color: rgba(255, 255, 255, .8) !important;}
 
 /****
 CUSTOM FRONTMATTER
@@ -147,6 +153,7 @@ CUSTOM LEFT SIDEBAR
   border-bottom:1px solid rgba(255, 255, 255, .1)
 }
 
+/*** defining background of elements in workspace ***/
 .workspace-ribbon,
 .workspace-tabs,
 .workspace-tab-container,
@@ -180,14 +187,26 @@ CUSTOM LEFT SIDEBAR
 .nav-file-title,
 .nav-folder.is-collapsed .nav-folder-title,
 .tree-item-inner {
-  /* color: var(--nav-item-color); */
   color: rgba(25, 23, 17, .6);
+}
+
+.theme-dark .nav-file-title,
+.theme-dark .nav-folder.is-collapsed .nav-folder-title,
+.theme-dark .tree-item-inner {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-folder .nav-folder-title,
 .nav-folder .nav-file-title.is-active {
   background-color: rgba(0, 0, 0, .04);
 }
+
+.theme-dark .nav-folder .nav-folder-title,
+.theme-dark .nav-folder .nav-file-title.is-active {
+  background-color: rgba(255, 255, 255, 0.055);
+  color: #fff;
+}
+
 
 .nav-folder .nav-folder-title:hover,
 .nav-folder .nav-file-title:hover {background-color: rgba(0, 0, 0, .08);}
@@ -228,13 +247,20 @@ CUSTOM LEFT SIDEBAR
 }
 
 /** divider of panel bottom sidebar **/
-.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle {border-color: var(--lightBorderColor)}
+/* .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle {border-color: var(--lightBorderColor)} */
 
 /*** SEARCH RESULTS ***/
 .search-result-file-matches,
 .tree-item.search-result .tree-item-icon.collapse-icon {
   display: none;
 }
+
+/***
+  SETTINGS MODAL
+***/
+
+.setting-item.setting-item-heading {border-bottom: 1px solid rgba(0, 0, 0, .1)}
+.theme-dark .setting-item.setting-item-heading {border-bottom: 1px solid rgba(255, 255, 255, .1)}
 
 
 /*** 
