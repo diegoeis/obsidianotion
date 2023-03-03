@@ -33,6 +33,14 @@ https://github.com/diegoeis/obisidianotion
   --font-paragraph: 1rem;
   --front-matter-font-size: .65rem;
 
+  --colorBlack: rgb(0, 0, 0);
+
+  /*** Color ***/
+  --nav-item-background-active: rgba(0, 0, 0, 0.04);
+  --nav-item-background-hover:  rgba(0, 0, 0, 0.08);
+  --nav-item-color: #72716D;
+
+  --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
 
 /*****
@@ -55,19 +63,21 @@ https://github.com/diegoeis/obisidianotion
   margin: 0 auto
 }
 
-.nav-folder-title:first {font-size: .8rem; color: rgba(0, 0, 0, .5) !important;}
+.nav-folder.mod-root > .nav-folder-title {background-color: transparent !important; font-size: .8rem; color: rgba(0, 0, 0, .5) !important;}
 
 /****
 CUSTOM FRONTMATTER
 ****/
 .cm-line {clear: left;}
 
-.cm-hmd-frontmatter {
-  /* float: left; */
+.cm-hmd-frontmatter {padding:3px 5px; margin-bottom: -5px}
+
+.cm-hmd-frontmatter,
+.cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
+.cm-active .cm-hmd-frontmatter .cm-url  {
   display: inline-block;
   vertical-align: top;
   font-size: var(--front-matter-font-size);
-  /* white-space: nowrap; */
   color: rgba(0, 0, 0, .9);
   text-overflow: hidden;
 }
@@ -82,10 +92,9 @@ CUSTOM FRONTMATTER
 .theme-dark .cm-atom.cm-hmd-frontmatter,
 .theme-dark .cm-def.cm-hmd-frontmatter {color: rgba(255, 255, 255, .4) !important;}
 
-.cm-hmd-frontmatter ~ .cm-hmd-frontmatter {
-  /* min-width: auto;
-  margin-bottom: 0px; */
-}
+.theme-dark .cm-hmd-frontmatter ~ .cm-hmd-frontmatter,
+.theme-dark .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
+.theme-dark .cm-active .cm-hmd-frontmatter .cm-url {color: rgba(255, 255, 255, .7) !important;}
 
 .cm-hmd-frontmatter:last-child {
   max-width: 500px;
@@ -94,13 +103,10 @@ CUSTOM FRONTMATTER
 
 .cm-def.cm-hmd-frontmatter {
   color: rgba(0, 0, 0, .15) !important;
-  font-size: .7rem;
 }
 
-.cm-line:hover .cm-hmd-frontmatter {cursor: default; color: rgba(0, 0, 0, .8);}
-
-
-.cm-active .cm-hmd-frontmatter {
+.cm-active .cm-hmd-frontmatter,
+.cm-active .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url {
   background: rgba(0, 0, 0, .15);
   color: rgba(0, 0, 0, .8);
 }
@@ -112,11 +118,23 @@ CUSTOM FRONTMATTER
   color: rgba(0, 0, 0, .6);
 } 
 
+.theme-dark .cm-active .cm-hmd-frontmatter,
+.theme-dark .cm-active .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url {
+  background: rgba(255,255,255,.15);
+  color: rgba(0, 0, 0, .8);
+}
+
+.theme-dark .cm-active .cm-atom.cm-hmd-frontmatter,
+.theme-dark .cm-active .cm-atom + .cm-hmd-frontmatter.cm-meta {
+  background: rgba(255,255,255,.04);
+  font-weight: bold; 
+  color: rgba(0, 0, 0, .6);
+} 
 
 /*****
 CUSTOM LEFT SIDEBAR 
 ****/
-
+.clickable-icon.side-dock-ribbon-action {cursor:pointer;}
 .nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
   font-size: 1.5rem;
   padding: 10px 0 20px;
@@ -160,10 +178,25 @@ CUSTOM LEFT SIDEBAR
 
 /** items of nav-file three **/
 .nav-file-title,
+.nav-folder.is-collapsed .nav-folder-title,
 .tree-item-inner {
-  color: #72716D;
+  /* color: var(--nav-item-color); */
+  color: rgba(25, 23, 17, .6);
 }
 
+.nav-folder .nav-folder-title,
+.nav-folder .nav-file-title.is-active {
+  background-color: rgba(0, 0, 0, .04);
+}
+
+.nav-folder .nav-folder-title:hover,
+.nav-folder .nav-file-title:hover {background-color: rgba(0, 0, 0, .08);}
+.nav-folder.is-collapsed .nav-folder-title {background-color: inherit;}
+
+
+.nav-folder .nav-folder-title {
+  color: #373530;
+}
 
 /** border-right of sidebar **/
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
@@ -179,8 +212,13 @@ CUSTOM LEFT SIDEBAR
 }
 
 /** border-right of icons bar **/
-.workspace-ribbon, .workspace-tab-header, .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--lightBorderColor); }
-.theme-dark .workspace-ribbon, .theme-dark .workspace-tab-header, .theme-dark .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--darkBorderColor); }
+.workspace-ribbon, 
+.workspace-tab-header, 
+.workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--lightBorderColor); }
+
+.theme-dark .workspace-ribbon, 
+.theme-dark .workspace-tab-header, 
+.theme-dark .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--darkBorderColor); }
 
 /** neutralizing other backgrounds **/
 .view-content,
