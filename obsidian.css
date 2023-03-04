@@ -262,6 +262,7 @@ CUSTOM LEFT SIDEBAR
 .setting-item.setting-item-heading {border-bottom: 1px solid rgba(0, 0, 0, .1)}
 .theme-dark .setting-item.setting-item-heading {border-bottom: 1px solid rgba(255, 255, 255, .1)}
 
+.setting-item {border-top: none;}
 
 /*** 
   TAB BAR HEADER
