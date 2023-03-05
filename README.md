@@ -85,6 +85,6 @@ This theme works very good using [Make.md plugin](https://github.com/Make-md/mak
 
 ![Make.md](https://i.imgur.com/V5WoR6N.png)
 
-![Projects](https://github.com/marcusolsson/obsidian-projects) to create views using your tags, dataview or folders.
+[Projects](https://github.com/marcusolsson/obsidian-projects) to create views using your tags, dataview or folders.
 
 ![Projects plugin](https://i.imgur.com/vdjtRfM.png)
