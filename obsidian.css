@@ -103,7 +103,6 @@ body {
 
   --font-paragraph: 1rem;
   --front-matter-font-size: .65rem;
-  --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
 
 /*****
@@ -113,6 +112,9 @@ body.theme-light {
   --default-border-color: rgba(0, 0, 0, .06);
   --heading-text-color: #37352f;
   --font-color-paragraph: #37352f;
+
+  --scrollbar-background: #EDECE9;
+  --scrollbar-color: #D3D1CC;
 
   /*** sidebar ***/
   --sidebar-themed-bg: #F7F7F5;
@@ -128,7 +130,13 @@ body.theme-light {
   --frontmatter-atom-background: rgba(0, 0, 0, .05);
   --frontmatter-atom-color: rgba(0, 0, 0, .5);
 
-   --tab-header-active-background: #fff;
+  --tab-header-active-background: #fff;
+
+
+  /*** settings ***/
+  --setting-item-description-color: #7D7C78;
+  --setting-item-name-color: #373530;
+
 }
 
 /*****
@@ -138,6 +146,10 @@ body.theme-dark {
   --default-border-color: rgba(255, 255, 255, .06);
   --heading-text-color: #fff;
   --colorBlack: rgb(0, 0, 0);
+
+  --scrollbar-background: #272727;
+  --scrollbar-color: #484C50;
+
 
   /*** sidebar ***/
   --sidebar-themed-bg: rgb(32, 32, 32);
@@ -155,8 +167,11 @@ body.theme-dark {
 
   --tab-header-active-background: rgba(255,255,255, .07);
 
-}
+  /*** settings ***/
+  --setting-item-description-color: #838383;
+  --setting-item-name-color: #D4D4D4;
 
+}
 
 /* ─────────────────────────────────────────────────── */
 /* VIEW CONTENT                                        */
@@ -166,7 +181,7 @@ body.theme-dark {
 }
 
 /*** Headings ***/
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1); line-height: 1.2;}
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
@@ -280,8 +295,6 @@ CUSTOM LEFT SIDEBAR
 /*** active tab ***/
 .workspace-tab-header.is-active.mod-active {background: var(--tab-header-active-background) !important}
 
-
-
 .theme-dark .workspace-ribbon.mod-left:before{border-color: var(--default-border-color);}
 
 /** items of nav-file three **/
@@ -290,7 +303,19 @@ CUSTOM LEFT SIDEBAR
 
 .is-collapsed .nav-folder-title {background: inherit;}
 
-.nav-folder-title {color: var(--nav-item-active); background: var(--nav-item-background-active)}
+.nav-folder-title {
+  color: var(--nav-item-active); 
+  background: var(--nav-item-background-active);
+  font-weight: bold !important;
+}
+
+.tree-item-self.is-clickable:hover,
+.search-result-file-matches,
+.nav-file-title,
+body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {color: var(--nav-item-color-hover) !important;}
 
 /** border-right of sidebar **/
 .workspace-leaf-resize-handle, 
@@ -332,7 +357,6 @@ CUSTOM LEFT SIDEBAR
 
 .theme-dark .nav-header {border-bottom-color: var(--default-border-color);}
 
-
 /***
   SETTINGS MODAL
 ***/
@@ -341,6 +365,13 @@ CUSTOM LEFT SIDEBAR
 .theme-dark .setting-item.setting-item-heading {border-bottom: 1px solid rgba(255, 255, 255, .1)}
 
 .setting-item {border-top: none;}
+
+.setting-item-description {
+  color: var(--setting-item-description-color);
+}
+
+.vertical-tab-nav-item {cursor: pointer;}
+.modal.mod-settings .vertical-tab-header {border-right: none;}
 
 /*** 
   TAB BAR HEADER
@@ -356,46 +387,19 @@ CUSTOM LEFT SIDEBAR
 .clickable-icon {color: #B9B8B5; cursor: pointer;}
 
 /** scroll bars **/
-.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar,
-.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar
-.workspace-leaf-content .view-content::-webkit-scrollbar,
-.mk-file-tree > div::-webkit-scrollbar {
-  width: 12px;
+::-webkit-scrollbar {
+  width: 9px;
 }
 
-.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar-track,
-.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-track,
-.workspace-leaf-content .view-content::-webkit-scrollbar-track,
-.mk-file-tree > div::-webkit-scrollbar-track {
-  background: #EDECE9;
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
 }
 
-.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar-thumb,
-.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-thumb,
-.workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
-.mk-file-tree > div::-webkit-scrollbar-thumb {
-  background-color: #D3D1CC;
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
   border-radius: 0;
   border: 0px;
 }
-
-.theme-dark .view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-track,
-.theme-dark .workspace-leaf-content .view-content::-webkit-scrollbar-track,
-.theme-dark .mk-file-tree > div::-webkit-scrollbar-track {background: #272727;}
-
-.theme-dark .view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-thumb,
-.theme-dark .workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
-.theme-dark .mk-file-tree > div::-webkit-scrollbar-thumb {background-color: #484C50; }
-
-.tree-item-self.is-clickable:hover,
-.search-result-file-matches,
-.nav-file-title,
-body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
-
-.nav-folder-title,
-.nav-folder-title:hover,
-body:not(.is-grabbing) .nav-folder-title:hover {font-weight: bold;}
-
 
 /* ------------------- */
 /* MAKE.md Plugin custom  */
