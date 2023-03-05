@@ -17,10 +17,10 @@ https://github.com/diegoeis/obisidianotion
 :root {
   --header-height: 300px;
 
-  --lightBorderColor: rgba(0, 0, 0, .03);
+  --lightBorderColor: rgba(0, 0, 0, .06);
   
   /*** dark mode variables **/
-  --darkBorderColor: rgba(255, 255, 255, .03);
+  --darkBorderColor: rgba(255, 255, 255, .06);
 
 
   /*** All typos ***/
@@ -39,6 +39,7 @@ https://github.com/diegoeis/obisidianotion
   --nav-item-background-active: rgba(0, 0, 0, 0.04);
   --nav-item-background-hover:  rgba(0, 0, 0, 0.08);
   --nav-item-color: #72716D;
+  --sidebarFolderFileColor: rgba(25, 23, 17, .5);
 
   --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
@@ -56,20 +57,26 @@ https://github.com/diegoeis/obisidianotion
 .HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
 .HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5);}
 .HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6);}
-.markdown-source-view.mod-cm6 .cm-contentContainer {font-size: var(--font-paragraph) !important; line-height: 1.5;}
+
+.markdown-source-view.mod-cm6 .cm-contentContainer {
+  font-size: var(--font-paragraph) !important; 
+  line-height: 1.5;
+}
+
+.theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
+
+.HyperMD-header.HyperMD-header-1.cm-line, 
+.HyperMD-header.HyperMD-header-2.cm-line, 
+.HyperMD-header.HyperMD-header-3.cm-line, 
+.HyperMD-header.HyperMD-header-4.cm-line, 
+.HyperMD-header.HyperMD-header-5.cm-line, 
+.HyperMD-header.HyperMD-header-6.cm-line {color: #fff;}
 
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
   width: 710px !important;
   margin: 0 auto
 }
 
-.nav-folder.mod-root > .nav-folder-title {
-  background-color: transparent !important; 
-  font-size: .8rem; 
-  color: rgba(0, 0, 0, .5) !important;
-}
-
-.theme-dark .nav-folder.mod-root > .nav-folder-title {color: rgba(255, 255, 255, .8) !important;}
 
 /****
 CUSTOM FRONTMATTER
@@ -137,24 +144,36 @@ CUSTOM FRONTMATTER
   color: rgba(0, 0, 0, .6);
 } 
 
-.markdown-rendered .internal-link {border-bottom: .05em solid; transition: color linear .10s;}
-.markdown-rendered .internal-link:hover {color:#000;}
+.markdown-rendered .internal-link {
+  border-bottom: .05em solid; 
+  transition: color linear .10s;
+  text-decoration: none;
+}
+
+.markdown-rendered .internal-link:hover {color:#000; text-decoration: none;}
 .theme-dark .markdown-rendered .internal-link:hover {color:#fff;}
 
 /*****
 CUSTOM LEFT SIDEBAR 
 ****/
 .clickable-icon.side-dock-ribbon-action {cursor:pointer;}
-.nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
-  font-size: 1.5rem;
-  padding: 10px 0 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  border-bottom:1px solid rgba(0, 0, 0, .1)
+
+/** Container of vault name in sidebar **/
+.nav-folder.mod-root > .nav-folder-title {
+  background-color: transparent !important;
 }
 
+/** Vault name in sidebar **/
+.nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
+  font-size: 1rem; 
+  color: rgba(0, 0, 0, .5) !important;
+  padding: 10px 0;
+  background: transparent !important;
+  cursor: default;
+} 
+
 .theme-dark .nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
-  border-bottom:1px solid rgba(255, 255, 255, .1)
+  color: rgba(255, 255, 255, .8) !important;
 }
 
 /*** defining background of elements in workspace ***/
@@ -186,12 +205,11 @@ CUSTOM LEFT SIDEBAR
 
 .theme-dark .workspace-ribbon.mod-left:before{border-color: var(--darkBorderColor);}
 
-
 /** items of nav-file three **/
 .nav-file-title,
 .nav-folder.is-collapsed .nav-folder-title,
 .tree-item-inner {
-  color: rgba(25, 23, 17, .6);
+  color: var(--sidebarFolderFileColor);
 }
 
 .theme-dark .nav-file-title,
@@ -222,7 +240,7 @@ CUSTOM LEFT SIDEBAR
 }
 
 /** border-right of sidebar **/
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
+.workspace-leaf-resize-handle, 
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle
 .workspace-ribbon {
   border-color: var(--lightBorderColor) !important;
@@ -250,14 +268,23 @@ CUSTOM LEFT SIDEBAR
   background-color: transparent !important;
 }
 
-/** divider of panel bottom sidebar **/
-/* .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle {border-color: var(--lightBorderColor)} */
-
 /*** SEARCH RESULTS ***/
 .search-result-file-matches,
 .tree-item.search-result .tree-item-icon.collapse-icon {
   display: none;
 }
+
+.nav-buttons-container {
+  justify-content: flex-start;
+}
+
+.nav-header {
+  padding: 20px 14px 10px;
+  border-bottom: 1px solid var(--lightBorderColor);
+}
+
+.theme-dark .nav-header {border-bottom-color: var(--darkBorderColor);}
+
 
 /***
   SETTINGS MODAL
@@ -279,7 +306,7 @@ CUSTOM LEFT SIDEBAR
 .workspace-split.mod-root .workspace-tab-header.is-active::after,
 .workspace-split.mod-root .workspace-tab-header.is-active::before {display: none;}
 
-.clickable-icon {color: #B9B8B5; }
+.clickable-icon {color: #B9B8B5; cursor: pointer;}
 
 /** scroll bars **/
 .markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar,
@@ -326,9 +353,9 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 body:not(.is-grabbing) .nav-folder-title:hover {font-weight: bold;}
 
 
-/*** 
-MAKE.md Plugin custom 
-***/
+/* ------------------- */
+/* MAKE.md Plugin custom  */
+/* ------------------- */
 div.mk-header.cm-line {padding-bottom: 50px !important;}
 .mk-header .mk-file-context-file .mk-file-icon,
 .mk-header .mk-file-icon button {
@@ -380,7 +407,32 @@ div.mk-header.cm-line {padding-bottom: 50px !important;}
   cursor: default;
 }
 
+/* ------------------- */
+/* Tasks Plugin */
+/* ------------------- */
+.markdown-rendered ul, .markdown-rendered ol {
+  padding-inline-start: 0;
+}
 
+h5.tasks-group-heading {
+  font-size: 15px;
+  padding-top: 5px;
+}
+h4.tasks-group-heading:first-child {
+  border-top: none;
+  margin-top: 0;
+}
+h4.tasks-group-heading {
+  font-size: 20px;
+  padding-top: 20px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+li.task-list-item.plugin-tasks-list-item {
+  margin-bottom: 7px;
+  line-height: 1.5;
+}
 
 /* ------------------- */
 /* Checkbox styling & icons. Credit Minimal theme: https://minimal.guide/Block+types/Checklists#Checkbox+styling */
