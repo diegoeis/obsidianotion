@@ -25,6 +25,41 @@ Settings modal:
 ![dark settings modal](https://i.imgur.com/j8sJKqT.png)
 ![light settings modal](https://i.imgur.com/XMIdM57.png)
 
+Obsidianotion supports a wide number of alternate checkbox types. These allow you to call out tasks that are incomplete, canceled, rescheduled, etc. See below for availale checkbox types.
+
+![Checklists](https://i.imgur.com/vGk9jh5.png)
+
+```
+Basic checklists:
+- [ ] to-do
+- [/] incomplete
+- [x] done
+- [-] canceled
+- [>] forwarded
+- [<] scheduling
+
+Extras checklists:
+- [?] question
+- [!] important
+- [*] star
+- ["] quote
+- [l] location
+- [b] bookmark
+- [i] information
+- [S] savings
+- [I] idea
+- [p] pros
+- [c] cons
+- [f] fire
+- [k] key
+- [w] win
+- [u] up
+- [d] down
+```
+
+_These are the same checkbox styles used in [Things](https://github.com/colineckert/obsidian-things) and [Minimal](https://minimal.guide/Block+types/Checklists#Checkbox+styling) themes. So, give it a try too._
+
+
 ## To install
 
 1. Open the **Settings** in Obsidian;
