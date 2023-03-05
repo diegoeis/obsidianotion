@@ -27,19 +27,18 @@ Settings modal:
 
 ## To install
 
-To install Obsidianotion:
+1. Open the **Settings** in Obsidian;
+1. Navigate to **Appearance** tab;
+1. Under the **Themes** section, click on the `Manage` button across from **Themes**
+1. Search for `Obsidianotion` in the Search field text
+1. Click `Use` and then you're done! 🎉
 
-- Open Obsidian Settings
-- Go to `Appearance` and click `Manage`
-- Under community themes search for "Minimal" and click `Use`
+## Companion plugins
 
 To install the plugins that have a good fit with Obsidianotion:
 
 - Go to `Community plugins` and turn off `Safe mode`
-- Under community themes search for "Minimal Theme Settings" and click `Install`, then `Enable`
-
-
-## Companion plugins
+- Under community themes search for the plugins name and click `Install`, then `Enable`
 
 The banner in this image was inserted using [Banner Plugin](https://github.com/noatpad/obsidian-banners).
 
