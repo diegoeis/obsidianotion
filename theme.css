@@ -103,7 +103,6 @@ body {
 
   --font-paragraph: 1rem;
   --front-matter-font-size: .65rem;
-  --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
 
 /*****
@@ -128,7 +127,13 @@ body.theme-light {
   --frontmatter-atom-background: rgba(0, 0, 0, .05);
   --frontmatter-atom-color: rgba(0, 0, 0, .5);
 
-   --tab-header-active-background: #fff;
+  --tab-header-active-background: #fff;
+
+
+  /*** settings ***/
+  --setting-item-description-color: #7D7C78;
+  --setting-item-name-color: #373530;
+
 }
 
 /*****
@@ -155,6 +160,10 @@ body.theme-dark {
 
   --tab-header-active-background: rgba(255,255,255, .07);
 
+  /*** settings ***/
+  --setting-item-description-color: #838383;
+  --setting-item-name-color: #D4D4D4;
+
 }
 
 
@@ -166,7 +175,7 @@ body.theme-dark {
 }
 
 /*** Headings ***/
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1); line-height: 1.2;}
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
@@ -332,7 +341,6 @@ CUSTOM LEFT SIDEBAR
 
 .theme-dark .nav-header {border-bottom-color: var(--default-border-color);}
 
-
 /***
   SETTINGS MODAL
 ***/
@@ -341,6 +349,13 @@ CUSTOM LEFT SIDEBAR
 .theme-dark .setting-item.setting-item-heading {border-bottom: 1px solid rgba(255, 255, 255, .1)}
 
 .setting-item {border-top: none;}
+
+.setting-item-description {
+  color: var(--setting-item-description-color);
+}
+
+.vertical-tab-nav-item {cursor: pointer;}
+.modal.mod-settings .vertical-tab-header {border-right: none;}
 
 /*** 
   TAB BAR HEADER
