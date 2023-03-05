@@ -7,6 +7,79 @@ Readme:
 https://github.com/diegoeis/obisidianotion
 ────────────────────────────────────────────────────── */
 
+/* @settings
+
+name: Obsidianotion visual control settings
+id: custom-diegoeis-obsidianotion
+settings:
+    - 
+        id: Heading
+        title: Fonts and Typograph
+        type: heading
+        level: 2
+    - 
+        id: size-h1
+        title: H1
+        description: Font size of H1
+        type: variable-number
+        default: 2.4
+        format: rem
+    - 
+        id: size-h2
+        title: H2
+        description: Font size of H2
+        type: variable-number
+        default: 1.92
+        format: rem
+    - 
+        id: size-h3
+        title: H3
+        description: Font size of H3
+        type: variable-number
+        default: 1.53
+        format: rem
+    - 
+        id: size-h4
+        title: H4
+        description: Font size of H4
+        type: variable-number
+        default: 1.22
+        format: rem
+    - 
+        id: size-h5
+        title: H5
+        description: Font size of H5
+        type: variable-number
+        default: .97
+        format: rem
+    - 
+        id: size-h6
+        title: H6
+        description: Font size of H6
+        type: variable-number
+        default: .77
+        format: rem
+    - 
+        id: font-paragraph
+        title: Body paragraphy
+        description: Font size of body size
+        type: variable-number
+        default: 1
+        format: rem
+    - 
+        id: Heading
+        title: Colors
+        type: heading
+        level: 2
+    - 
+        id: heading-text-color
+        title: Headings colors
+        description: Titles text colors
+        type: variable-themed-color
+        format: hex
+        default-light: '#37352f'
+        default-dark: '#fff'
+*/
 
 /* ─────────────────────────────────────────────────── */
 /* Main Theme Styling */
@@ -14,14 +87,11 @@ https://github.com/diegoeis/obisidianotion
 
 @charset "UTF-8";
 
-:root {
-  --header-height: 300px;
-
-  --lightBorderColor: rgba(0, 0, 0, .06);
+body {
   
-  /*** dark mode variables **/
-  --darkBorderColor: rgba(255, 255, 255, .06);
-
+  /*****
+  GENERAL VARIABLES
+  *****/
 
   /*** All typos ***/
   --size-h1: 2.4rem;
@@ -30,58 +100,95 @@ https://github.com/diegoeis/obisidianotion
   --size-h4: 1.22rem;
   --size-h5: .97rem;
   --size-h6: .77rem;
+
   --font-paragraph: 1rem;
   --front-matter-font-size: .65rem;
-
-  --colorBlack: rgb(0, 0, 0);
-
-  /*** Color ***/
-
-  --nav-item-color: #72716D;
-  --dark-nav-item-color: #9B9B9B;
-
-  --nav-item-color-hover: #6C6B67;
-  --dark-nav-item-color-hover: #D7D7D7;
-
-  --nav-item-background-hover:  #E8E8E6;
-  --dark-nav-item-background-hover:  #2C2C2C;
-
-  --nav-item-background-active: #EDEDEB;
-  --dark-nav-item-background-active: #252525;
-
-  --nav-item-active: #373530;
-  --dark-nav-item-active: #9B9B9B;
-
   --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
 
 /*****
-  VIEW CONTENT 
+LIGHT VARIABLES
 *****/
+body.theme-light {
+  --default-border-color: rgba(0, 0, 0, .06);
+  --heading-text-color: #37352f;
+  --font-color-paragraph: #37352f;
+
+  /*** sidebar ***/
+  --sidebar-themed-bg: #F7F7F5;
+  --nav-item-color: #72716D;
+  --nav-item-color-hover: #6C6B67;
+  --nav-item-active: #373530;
+  --nav-item-background-hover:  #E8E8E6;
+  --nav-item-background-active: #EDEDEB;
+
+  /*** content ***/
+  --frontmatter-active-bg: rgba(0, 0, 0, .15);
+  --frontmatter-active-color: rgba(0, 0, 0, .8);
+  --frontmatter-atom-background: rgba(0, 0, 0, .05);
+  --frontmatter-atom-color: rgba(0, 0, 0, .5);
+
+   --tab-header-active-background: #fff;
+}
+
+/*****
+DARK VARIABLES
+*****/
+body.theme-dark {
+  --default-border-color: rgba(255, 255, 255, .06);
+  --heading-text-color: #fff;
+  --colorBlack: rgb(0, 0, 0);
+
+  /*** sidebar ***/
+  --sidebar-themed-bg: rgb(32, 32, 32);
+  --nav-item-color: #9B9B9B;
+  --nav-item-color-hover: #D7D7D7;
+  --nav-item-active: #9B9B9B;
+  --nav-item-background-hover:  #2C2C2C;
+  --nav-item-background-active: #252525;
+
+  /*** content ***/
+  --frontmatter-active-bg: rgba(255,255,255,.15);
+  --frontmatter-active-color: rgba(0, 0, 0, .8);
+  --frontmatter-atom-background: rgba(255,255,255,.04);
+  --frontmatter-atom-color: rgba(255, 255, 255, .4);
+
+  --tab-header-active-background: rgba(255,255,255, .07);
+
+}
+
+
+/* ─────────────────────────────────────────────────── */
+/* VIEW CONTENT                                        */
+/* ─────────────────────────────────────────────────── */
 .theme-dark .view-content .cm-editor {
   background-color: rgb(25, 25, 25) !important;
 }
 
-.HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1);}
-.HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
-.HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
-.HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
-.HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5);}
-.HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6);}
+/*** Headings ***/
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6);}
 
-.markdown-source-view.mod-cm6 .cm-contentContainer {
-  font-size: var(--font-paragraph) !important; 
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, 
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, 
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, 
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, 
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, 
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {
+  color: var(--heading-text-color);
+}
+
+/*** Body text ***/
+.cm-contentContainer .cm-content .cm-line {
+  font-size: var(--font-paragraph); 
   line-height: 1.5;
 }
 
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
-
-.theme-dark .HyperMD-header.HyperMD-header-1.cm-line, 
-.theme-dark .HyperMD-header.HyperMD-header-2.cm-line, 
-.theme-dark .HyperMD-header.HyperMD-header-3.cm-line, 
-.theme-dark .HyperMD-header.HyperMD-header-4.cm-line, 
-.theme-dark .HyperMD-header.HyperMD-header-5.cm-line, 
-.theme-dark .HyperMD-header.HyperMD-header-6.cm-line {color: #fff;}
 
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
   width: 710px !important;
@@ -89,9 +196,9 @@ https://github.com/diegoeis/obisidianotion
 }
 
 
-/****
-CUSTOM FRONTMATTER
-****/
+/* ─────────────────────────────────────────────────── */
+/* CUSTOM FRONTMATTER                                  */
+/* ─────────────────────────────────────────────────── */
 .cm-line {clear: left;}
 
 .cm-hmd-frontmatter {padding:3px 5px; margin-bottom: -5px}
@@ -110,11 +217,9 @@ CUSTOM FRONTMATTER
   clear: both;
   min-width: 110px;
   max-width: 300px;
-  color: rgba(0, 0, 0, .5);
+  color: var(--frontmatter-atom-color);
 }
 
-.theme-dark .cm-atom.cm-hmd-frontmatter,
-.theme-dark .cm-def.cm-hmd-frontmatter {color: rgba(255, 255, 255, .4) !important;}
 
 .theme-dark .cm-hmd-frontmatter ~ .cm-hmd-frontmatter,
 .theme-dark .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
@@ -125,32 +230,15 @@ CUSTOM FRONTMATTER
   overflow-wrap: break-word;
 }
 
-.cm-def.cm-hmd-frontmatter {
-  color: rgba(0, 0, 0, .15) !important;
-}
-
 .cm-active .cm-hmd-frontmatter,
 .cm-active .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url {
-  background: rgba(0, 0, 0, .15);
-  color: rgba(0, 0, 0, .8);
+  background: var(--frontmatter-active-bg);
+  color: var(--frontmatter-active-color);
 }
 
 .cm-active .cm-atom.cm-hmd-frontmatter,
 .cm-active .cm-atom + .cm-hmd-frontmatter.cm-meta {
-  background-color: rgba(0, 0, 0, .05); 
-  font-weight: bold; 
-  color: rgba(0, 0, 0, .6);
-} 
-
-.theme-dark .cm-active .cm-hmd-frontmatter,
-.theme-dark .cm-active .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url {
-  background: rgba(255,255,255,.15);
-  color: rgba(0, 0, 0, .8);
-}
-
-.theme-dark .cm-active .cm-atom.cm-hmd-frontmatter,
-.theme-dark .cm-active .cm-atom + .cm-hmd-frontmatter.cm-meta {
-  background: rgba(255,255,255,.04);
+  background-color: var(--frontmatter-atom-background);
   font-weight: bold; 
   color: rgba(0, 0, 0, .6);
 } 
@@ -182,77 +270,33 @@ CUSTOM LEFT SIDEBAR
 .workspace-ribbon.mod-left:before,
 .workspace-tab-header-container,
 .sidebar-toggle-button.mod-right {
-  background-color: #F7F7F5 !important;
+  background-color: var(--sidebar-themed-bg) !important;
 }
-.workspace-ribbon.mod-left:before{border-color: #F7F7F5}
+
+.workspace-ribbon.mod-left:before{border-color: var(--sidebar-themed-bg)}
 
 .mod-root .workspace-tabs .workspace-leaf {background-color: white !important;}
 
-.workspace-tab-header.is-active.mod-active {background: white !important}
-.theme-dark .workspace-tab-header.is-active.mod-active {background: rgba(255,255,255, .07) !important}
+/*** active tab ***/
+.workspace-tab-header.is-active.mod-active {background: var(--tab-header-active-background) !important}
 
-.theme-dark .workspace-ribbon,
-.theme-dark .workspace-tabs,
-.theme-dark .workspace-tab-container,
-.theme-dark .workspace-tab-container .workspace-leaf,
-.theme-dark .workspace-ribbon.mod-left:before,
-.theme-dark .workspace-tab-header-container,
-.theme-dark .sidebar-toggle-button.mod-right {
-  background-color: rgb(32, 32, 32) !important;
-}
 
-.theme-dark .workspace-ribbon.mod-left:before{border-color: var(--darkBorderColor);}
+
+.theme-dark .workspace-ribbon.mod-left:before{border-color: var(--default-border-color);}
 
 /** items of nav-file three **/
-
 .nav-file-title, 
 .nav-folder-title {color: var(--nav-item-color) !important;}
 
-.theme-dark .nav-file-title, 
-.theme-dark .nav-folder-title {color: var(--dark-nav-item-color);}
-
-.is-collapsed .nav-folder-title,
-.theme-dark .is-collapsed .nav-folder-title {
-  background: inherit;
-}
+.is-collapsed .nav-folder-title {background: inherit;}
 
 .nav-folder-title {color: var(--nav-item-active); background: var(--nav-item-background-active)}
-.theme-dark .nav-folder-title {color:var(--dark-nav-item-active); background: var(--dark-nav-item-background-active)}
-
-.nav-file-title:hover, 
-.nav-folder-title:hover {
-  color: var(--nav-item-color-hover) !important;
-  background: #E8E8E6 !important;
-}
-
-.theme-dark .nav-file-title:hover, 
-.theme-dark .nav-folder-title:hover {
-  color: var(--dark-nav-item-color-hover);
-  background-color: var(--dark-nav-item-background-hover);
-}
-
-.nav-file-title.is-active {
-  color: var(--nav-item-active);
-  background-color: var(--nav-item-background-active) !important; 
-}
-
-.theme-dark .nav-file-title.is-active {
-  color: var(--dark-nav-item-active);
-  background-color: var(--dark-nav-item-background-active);
-}
-
 
 /** border-right of sidebar **/
 .workspace-leaf-resize-handle, 
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle
 .workspace-ribbon {
-  border-color: var(--lightBorderColor) !important;
-}
-
-.theme-dark .workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
-.theme-dark .workspace-split.mod-right-split > .workspace-leaf-resize-handle
-.theme-dark .workspace-ribbon {
-  border-color: var(--darkBorderColor) !important;
+  border-color: var(--default-border-color) !important;
 }
 
 /** border-right of icons bar **/
@@ -262,7 +306,7 @@ CUSTOM LEFT SIDEBAR
 
 .theme-dark .workspace-ribbon, 
 .theme-dark .workspace-tab-header, 
-.theme-dark .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--darkBorderColor); }
+.theme-dark .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--default-border-color); }
 
 /** neutralizing other backgrounds **/
 .view-content,
@@ -286,7 +330,7 @@ CUSTOM LEFT SIDEBAR
   border-bottom: 1px solid var(--lightBorderColor);
 }
 
-.theme-dark .nav-header {border-bottom-color: var(--darkBorderColor);}
+.theme-dark .nav-header {border-bottom-color: var(--default-border-color);}
 
 
 /***
