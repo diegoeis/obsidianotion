@@ -67,7 +67,7 @@ settings:
         default: 1
         format: rem
     - 
-        id: Heading
+        id: Colors
         title: Colors
         type: heading
         level: 2
@@ -79,6 +79,14 @@ settings:
         format: hex
         default-light: '#37352f'
         default-dark: '#fff'
+    - 
+        id: sidebar-themed-bg
+        title: Colors of sidebar and tabbar
+        description: If you wanna change the light browser of Notion...
+        type: variable-themed-color
+        format: hex
+        default-light: '#F7F7F5'
+        default-dark: '#202020'
 */
 
 /* ─────────────────────────────────────────────────── */
@@ -154,7 +162,7 @@ body.theme-dark {
 
 
   /*** sidebar ***/
-  --sidebar-themed-bg: rgb(32, 32, 32);
+  --sidebar-themed-bg: #202020;
   --nav-item-color: #9B9B9B;
   --nav-item-color-hover: #D7D7D7;
   --nav-item-active: #9B9B9B;
@@ -218,17 +226,22 @@ body.theme-light .table-view-table > thead > tr > th {
   --default-border-color: rgba(0, 0, 0, .3);
   background: rgba(0,0,0,.05)
 }
+
+
 body.theme-dark .table-view-table > thead > tr > th {
   --default-border-color: rgba(255, 255, 255, .3);
   background: rgba(255,255,255,.05)
 }
 
-.table-view-table > thead > tr > th {
-  font-size: .8rem;
-  border-bottom: 2px solid var(--default-border-color)
+.table-view-table > thead > tr > th,
+.cm-embed-block table thead tr th,
+.markdown-rendered thead tr > th:nth-child(2n+2) {
+  font-size: .9rem;
+  border-bottom: 2px solid var(--default-border-color);
 }
 
-.table-view-table > tbody > tr > td {
+.table-view-table > tbody > tr > td,
+.cm-embed-block table tbody tr td {
   font-size: .8rem !important;
   border-bottom: 1px solid var(--default-border-color)
 }
