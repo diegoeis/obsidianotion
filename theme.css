@@ -36,10 +36,21 @@ https://github.com/diegoeis/obisidianotion
   --colorBlack: rgb(0, 0, 0);
 
   /*** Color ***/
-  --nav-item-background-active: rgba(0, 0, 0, 0.04);
-  --nav-item-background-hover:  rgba(0, 0, 0, 0.08);
+
   --nav-item-color: #72716D;
-  --sidebarFolderFileColor: rgba(25, 23, 17, .5);
+  --dark-nav-item-color: #9B9B9B;
+
+  --nav-item-color-hover: #6C6B67;
+  --dark-nav-item-color-hover: #D7D7D7;
+
+  --nav-item-background-hover:  #E8E8E6;
+  --dark-nav-item-background-hover:  #2C2C2C;
+
+  --nav-item-background-active: #EDEDEB;
+  --dark-nav-item-background-active: #252525;
+
+  --nav-item-active: #373530;
+  --dark-nav-item-active: #9B9B9B;
 
   --font-interface-theme: "Roboto Flex", "Open Sans", Arial, Helvetica, Sans-serif;
 }
@@ -163,19 +174,6 @@ CUSTOM LEFT SIDEBAR
   background-color: transparent !important;
 }
 
-/** Vault name in sidebar **/
-.nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
-  font-size: 1rem; 
-  color: rgba(0, 0, 0, .5) !important;
-  padding: 10px 0;
-  background: transparent !important;
-  cursor: default;
-} 
-
-.theme-dark .nav-folder-title .nav-folder-title-content:not(.nav-folder-children div) {
-  color: rgba(255, 255, 255, .8) !important;
-}
-
 /*** defining background of elements in workspace ***/
 .workspace-ribbon,
 .workspace-tabs,
@@ -206,38 +204,43 @@ CUSTOM LEFT SIDEBAR
 .theme-dark .workspace-ribbon.mod-left:before{border-color: var(--darkBorderColor);}
 
 /** items of nav-file three **/
-.nav-file-title,
-.nav-folder.is-collapsed .nav-folder-title,
-.tree-item-inner {
-  color: var(--sidebarFolderFileColor);
+
+.nav-file-title, 
+.nav-folder-title {color: var(--nav-item-color) !important;}
+
+.theme-dark .nav-file-title, 
+.theme-dark .nav-folder-title {color: var(--dark-nav-item-color);}
+
+.is-collapsed .nav-folder-title,
+.theme-dark .is-collapsed .nav-folder-title {
+  background: inherit;
 }
 
-.theme-dark .nav-file-title,
-.theme-dark .nav-folder.is-collapsed .nav-folder-title,
-.theme-dark .tree-item-inner {
-  color: rgba(255, 255, 255, 0.5);
+.nav-folder-title {color: var(--nav-item-active); background: var(--nav-item-background-active)}
+.theme-dark .nav-folder-title {color:var(--dark-nav-item-active); background: var(--dark-nav-item-background-active)}
+
+.nav-file-title:hover, 
+.nav-folder-title:hover {
+  color: var(--nav-item-color-hover) !important;
+  background: #E8E8E6 !important;
 }
 
-.nav-folder .nav-folder-title,
-.nav-folder .nav-file-title.is-active {
-  background-color: rgba(0, 0, 0, .04);
+.theme-dark .nav-file-title:hover, 
+.theme-dark .nav-folder-title:hover {
+  color: var(--dark-nav-item-color-hover);
+  background-color: var(--dark-nav-item-background-hover);
 }
 
-.theme-dark .nav-folder .nav-folder-title,
-.theme-dark .nav-folder .nav-file-title.is-active {
-  background-color: rgba(255, 255, 255, 0.055);
-  color: #fff;
+.nav-file-title.is-active {
+  color: var(--nav-item-active);
+  background-color: var(--nav-item-background-active) !important; 
 }
 
-
-.nav-folder .nav-folder-title:hover,
-.nav-folder .nav-file-title:hover {background-color: rgba(0, 0, 0, .08);}
-.nav-folder.is-collapsed .nav-folder-title {background-color: inherit;}
-
-
-.nav-folder .nav-folder-title {
-  color: #373530;
+.theme-dark .nav-file-title.is-active {
+  color: var(--dark-nav-item-active);
+  background-color: var(--dark-nav-item-background-active);
 }
+
 
 /** border-right of sidebar **/
 .workspace-leaf-resize-handle, 
@@ -341,9 +344,6 @@ CUSTOM LEFT SIDEBAR
 .theme-dark .mk-file-tree > div::-webkit-scrollbar-thumb {background-color: #484C50; }
 
 .tree-item-self.is-clickable:hover,
-.search-result-file-matches {background-color: #E8E8E6;}
-
-.tree-item-self.is-clickable:hover,
 .search-result-file-matches,
 .nav-file-title,
 body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
@@ -406,6 +406,15 @@ div.mk-header.cm-line {padding-bottom: 50px !important;}
   top: 2px;
   cursor: default;
 }
+
+body:not(.is-mobile) .mk-tree-wrapper .mk-drag-handle {cursor: grab;}
+
+.mk-tree-item.nav-folder-title.is-active.is-selected,
+.mk-tree-item.nav-file-title.is-active.is-selected,
+.mk-tree-item.nav-file-title.is-active.is-selected:hover {font-weight: bold;}
+
+.theme-dark .mk-tree-item.nav-folder-title.is-active.is-selected,
+.theme-dark .mk-tree-item.nav-file-title.is-active.is-selected {color: #fff;}
 
 /* ------------------- */
 /* Tasks Plugin */
