@@ -137,6 +137,10 @@ CUSTOM FRONTMATTER
   color: rgba(0, 0, 0, .6);
 } 
 
+.markdown-rendered .internal-link {border-bottom: .05em solid; transition: color linear .10s;}
+.markdown-rendered .internal-link:hover {color:#000;}
+.theme-dark .markdown-rendered .internal-link:hover {color:#fff;}
+
 /*****
 CUSTOM LEFT SIDEBAR 
 ****/
