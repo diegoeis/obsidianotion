@@ -210,6 +210,30 @@ body.theme-dark {
   margin: 0 auto
 }
 
+/** TABLE **/
+
+body.theme-light .table-view-table > thead > tr > th {
+  --default-border-color: rgba(0, 0, 0, .3);
+  background: rgba(0,0,0,.05)
+}
+body.theme-dark .table-view-table > thead > tr > th {
+  --default-border-color: rgba(255, 255, 255, .3);
+  background: rgba(255,255,255,.05)
+}
+
+.table-view-table > thead > tr > th {
+  font-size: .8rem;
+  border-bottom: 2px solid var(--default-border-color)
+}
+
+.table-view-table > tbody > tr > td {
+  font-size: .8rem !important;
+  border-bottom: 1px solid var(--default-border-color)
+}
+
+
+
+
 
 /* ─────────────────────────────────────────────────── */
 /* CUSTOM FRONTMATTER                                  */
@@ -267,9 +291,9 @@ body.theme-dark {
 .markdown-rendered .internal-link:hover {color:#000; text-decoration: none;}
 .theme-dark .markdown-rendered .internal-link:hover {color:#fff;}
 
-/*****
-CUSTOM LEFT SIDEBAR 
-****/
+/* ─────────────────────────────────────────────────── */
+/* CUSTOM LEFT SIDEBAR                                 */
+/* ─────────────────────────────────────────────────── */
 .clickable-icon.side-dock-ribbon-action {cursor:pointer;}
 
 /** Container of vault name in sidebar **/
@@ -327,11 +351,7 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 /** border-right of icons bar **/
 .workspace-ribbon, 
 .workspace-tab-header, 
-.workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--lightBorderColor); }
-
-.theme-dark .workspace-ribbon, 
-.theme-dark .workspace-tab-header, 
-.theme-dark .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--default-border-color); }
+.workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--default-border-color); }
 
 /** neutralizing other backgrounds **/
 .view-content,
@@ -357,10 +377,9 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 
 .theme-dark .nav-header {border-bottom-color: var(--default-border-color);}
 
-/***
-  SETTINGS MODAL
-***/
-
+/* ─────────────────────────────────────────────────── */
+/* SETTINGS MODAL                                      */
+/* ─────────────────────────────────────────────────── */
 .setting-item.setting-item-heading {border-bottom: 1px solid rgba(0, 0, 0, .1)}
 .theme-dark .setting-item.setting-item-heading {border-bottom: 1px solid rgba(255, 255, 255, .1)}
 
@@ -373,9 +392,9 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 .vertical-tab-nav-item {cursor: pointer;}
 .modal.mod-settings .vertical-tab-header {border-right: none;}
 
-/*** 
-  TAB BAR HEADER
-***/
+/* ─────────────────────────────────────────────────── */
+/* TAB BAR HEADER                                      */
+/* ─────────────────────────────────────────────────── */
 .workspace-tab-header-container {border: none}
 .workspace-tab-header.is-active {box-shadow: none;}
 .workspace-tab-header {border-radius: 0;}
@@ -401,9 +420,10 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
   border: 0px;
 }
 
-/* ------------------- */
-/* MAKE.md Plugin custom  */
-/* ------------------- */
+/* ─────────────────────────────────────────────────── */
+/* MAKE.md Plugin custom */
+/* ─────────────────────────────────────────────────── */
+
 div.mk-header.cm-line {padding-bottom: 50px !important;}
 .mk-header .mk-file-context-file .mk-file-icon,
 .mk-header .mk-file-icon button {
@@ -492,7 +512,6 @@ li.task-list-item.plugin-tasks-list-item {
   margin-bottom: 7px;
   line-height: 1.5;
 }
-
 /* ------------------- */
 /* Checkbox styling & icons. Credit Minimal theme: https://minimal.guide/Block+types/Checklists#Checkbox+styling */
 /* Support @kepano - https://www.buymeacoffee.com/kepano */
