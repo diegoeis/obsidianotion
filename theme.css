@@ -65,12 +65,12 @@ https://github.com/diegoeis/obisidianotion
 
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
 
-.HyperMD-header.HyperMD-header-1.cm-line, 
-.HyperMD-header.HyperMD-header-2.cm-line, 
-.HyperMD-header.HyperMD-header-3.cm-line, 
-.HyperMD-header.HyperMD-header-4.cm-line, 
-.HyperMD-header.HyperMD-header-5.cm-line, 
-.HyperMD-header.HyperMD-header-6.cm-line {color: #fff;}
+.theme-dark .HyperMD-header.HyperMD-header-1.cm-line, 
+.theme-dark .HyperMD-header.HyperMD-header-2.cm-line, 
+.theme-dark .HyperMD-header.HyperMD-header-3.cm-line, 
+.theme-dark .HyperMD-header.HyperMD-header-4.cm-line, 
+.theme-dark .HyperMD-header.HyperMD-header-5.cm-line, 
+.theme-dark .HyperMD-header.HyperMD-header-6.cm-line {color: #fff;}
 
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
   width: 710px !important;
