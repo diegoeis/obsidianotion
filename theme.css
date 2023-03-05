@@ -88,7 +88,9 @@ settings:
 @charset "UTF-8";
 
 body {
-  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   /*****
   GENERAL VARIABLES
   *****/
