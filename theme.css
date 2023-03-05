@@ -113,6 +113,9 @@ body.theme-light {
   --heading-text-color: #37352f;
   --font-color-paragraph: #37352f;
 
+  --scrollbar-background: #EDECE9;
+  --scrollbar-color: #D3D1CC;
+
   /*** sidebar ***/
   --sidebar-themed-bg: #F7F7F5;
   --nav-item-color: #72716D;
@@ -144,6 +147,10 @@ body.theme-dark {
   --heading-text-color: #fff;
   --colorBlack: rgb(0, 0, 0);
 
+  --scrollbar-background: #272727;
+  --scrollbar-color: #484C50;
+
+
   /*** sidebar ***/
   --sidebar-themed-bg: rgb(32, 32, 32);
   --nav-item-color: #9B9B9B;
@@ -165,7 +172,6 @@ body.theme-dark {
   --setting-item-name-color: #D4D4D4;
 
 }
-
 
 /* ─────────────────────────────────────────────────── */
 /* VIEW CONTENT                                        */
@@ -371,36 +377,19 @@ CUSTOM LEFT SIDEBAR
 .clickable-icon {color: #B9B8B5; cursor: pointer;}
 
 /** scroll bars **/
-.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar,
-.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar
-.workspace-leaf-content .view-content::-webkit-scrollbar,
-.mk-file-tree > div::-webkit-scrollbar {
-  width: 12px;
+::-webkit-scrollbar {
+  width: 9px;
 }
 
-.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar-track,
-.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-track,
-.workspace-leaf-content .view-content::-webkit-scrollbar-track,
-.mk-file-tree > div::-webkit-scrollbar-track {
-  background: #EDECE9;
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
 }
 
-.markdown-source-view.mod-cm6 .cm-scroller::-webkit-scrollbar-thumb,
-.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-thumb,
-.workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
-.mk-file-tree > div::-webkit-scrollbar-thumb {
-  background-color: #D3D1CC;
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
   border-radius: 0;
   border: 0px;
 }
-
-.theme-dark .view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-track,
-.theme-dark .workspace-leaf-content .view-content::-webkit-scrollbar-track,
-.theme-dark .mk-file-tree > div::-webkit-scrollbar-track {background: #272727;}
-
-.theme-dark .view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller::-webkit-scrollbar-thumb,
-.theme-dark .workspace-leaf-content .view-content::-webkit-scrollbar-thumb,
-.theme-dark .mk-file-tree > div::-webkit-scrollbar-thumb {background-color: #484C50; }
 
 .tree-item-self.is-clickable:hover,
 .search-result-file-matches,
