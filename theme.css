@@ -380,7 +380,13 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 /* ─────────────────────────────────────────────────── */
 /* SETTINGS MODAL                                      */
 /* ─────────────────────────────────────────────────── */
-.setting-item.setting-item-heading {border-bottom: 1px solid rgba(0, 0, 0, .1)}
+.setting-item.setting-item-heading,
+.vertical-tab-content h2 {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  padding-bottom: 10px;
+  font-size: 1.3rem !important;
+}
+.vertical-tab-content h3 {font-size: 1rem;}
 .theme-dark .setting-item.setting-item-heading {border-bottom: 1px solid rgba(255, 255, 255, .1)}
 
 .setting-item {border-top: none;}
