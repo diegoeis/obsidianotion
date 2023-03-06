@@ -13,6 +13,17 @@ name: Obsidianotion visual control settings
 id: custom-diegoeis-obsidianotion
 settings:
     - 
+        id: Structure
+        title: Structure of components and areas
+        type: heading
+        level: 2
+    -
+      id: width-body-content
+      title: Width of body content. Where you write and read.
+      type: variable-number
+      default: 700
+      format: px
+    - 
         id: Heading
         title: Fonts and Typograph
         type: heading
@@ -96,12 +107,16 @@ settings:
 @charset "UTF-8";
 
 body {
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   /*****
   GENERAL VARIABLES
   *****/
+
+  --width-body-content: 900px;
+
 
   /*** All typos ***/
   --size-h1: 2.4rem;
@@ -207,18 +222,30 @@ body.theme-dark {
   color: var(--heading-text-color);
 }
 
-/*** Body text ***/
+/*** 
+Body text 
+***/
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
+  max-width: var(--width-body-content);
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-content,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line {
+  max-width: 100%;
+}
+
+/* Lines of Text */
 .cm-contentContainer .cm-content .cm-line {
   font-size: var(--font-paragraph); 
   line-height: 1.5;
 }
 
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
-
+/* 
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
   width: 710px !important;
   margin: 0 auto
-}
+} */
 
 /** TABLE **/
 
