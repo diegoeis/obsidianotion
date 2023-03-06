@@ -2,9 +2,12 @@
 
 ## Navigations
 
-- [About and Screenshots](#about-obsidianotion)
-- [To install](#to-install)
-- [Plugins](#companion-plugins)
+- [About Obsidianotion](#about-obsidianotion)
+  - [To install](#to-install)
+  - [Style Settings](#style-settings)
+  - [Companion plugins](#companion-plugins)
+
+Do you have any suggestions or feedback, please, let me know: [https://forms.gle/AnQgXjt56NSmhDnn6](https://forms.gle/AnQgXjt56NSmhDnn6)
 
 # About Obsidianotion
 
@@ -67,6 +70,14 @@ _These are the same checkbox styles used in [Things](https://github.com/colineck
 1. Under the **Themes** section, click on the `Manage` button across from **Themes**
 1. Search for `Obsidianotion` in the Search field text
 1. Click `Use` and then you're done! 🎉
+
+## Style Settings
+
+You can customize some of visuals installing the [Plugin Style Settings](https://github.com/mgmeyers/obsidian-style-settings). The theme works very fine without it, but if you wanna change the headings and body paragraph font size or even the default color of sidebar, you will can.
+
+![Style Settings](https://i.imgur.com/qm6s2Ht.png)
+
+This settings will grow with time!
 
 ## Companion plugins
 
