@@ -535,16 +535,13 @@ body:not(.is-mobile) .mk-tree-wrapper .mk-drag-handle {cursor: grab;}
 /* ------------------- */
 /* Tasks Plugin */
 /* ------------------- */
-.markdown-rendered ul, .markdown-rendered ol {
-  padding-inline-start: 0;
-}
-
 .tasks-list-text {font-size: .9rem;}
 
 h5.tasks-group-heading {
   font-size: 17px;
   padding-top: 5px;
 }
+
 h4.tasks-group-heading:first-child {
   border-top: none;
   margin-top: 0;
