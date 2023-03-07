@@ -62,6 +62,10 @@ Extras checklists:
 
 _These are the same checkbox styles used in [Things](https://github.com/colineckert/obsidian-things) and [Minimal](https://minimal.guide/Block+types/Checklists#Checkbox+styling) themes. So, give it a try too._
 
+Beatifull typo and wonderfull reading:
+
+![](https://i.imgur.com/YxXyktF.png)
+
 
 ## To install
 
