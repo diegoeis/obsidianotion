@@ -366,8 +366,7 @@ body.theme-dark .table-view-table > thead > tr > th {
 .theme-dark .workspace-ribbon.mod-left:before{border-color: var(--default-border-color);}
 
 /** items of nav-file three **/
-.nav-file-title, 
-.nav-folder-title {color: var(--nav-item-color) !important;}
+.nav-folder-title {font-weight: 600 !important;}
 
 .is-collapsed .nav-folder-title {
   background: inherit;
@@ -382,11 +381,11 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 .nav-folder-title:hover,
 .nav-file-title:hover {color: var(--nav-item-color-hover) !important;}
 
-.nav-folder-title,
+.nav-folder-title:has(+ .nav-folder-children .nav-file-title.is-active),
 .nav-file-title.is-active {
   color: var(--nav-item-active) !important; 
   background: var(--nav-item-background-active);
-  font-weight: bold !important;
+  font-weight: 700 !important;
 }
 
 /** border-right of sidebar **/
