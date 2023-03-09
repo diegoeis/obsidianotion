@@ -222,6 +222,34 @@ body.theme-dark {
   color: var(--heading-text-color);
 }
 
+/** showing the level of heading **/
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line:hover:before,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line:hover:before,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line:hover:before,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line:hover:before,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line:hover:before,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line:hover:before {
+  --title-height-title-id: 12px;
+  position: absolute;
+  top: calc(var(--title-height-title-id)/1.5);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: var(--title-height-title-id);
+  opacity: .3;
+  font-size: .6rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.HyperMD-header-1:hover:before {content: "H1";}
+.HyperMD-header-2:hover:before {content: "H2";}
+.HyperMD-header-3:hover:before {content: "H3";}
+.HyperMD-header-4:hover:before {content: "H4";}
+.HyperMD-header-5:hover:before {content: "H5";}
+.HyperMD-header-6:hover:before {content: "H6";}
+
 /*** 
 Body text 
 ***/
