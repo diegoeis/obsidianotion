@@ -72,10 +72,17 @@ settings:
         format: rem
     - 
         id: font-paragraph
-        title: Body paragraphy
+        title: Body paragraph
         description: Font size of body size
         type: variable-number
         default: 1
+        format: rem
+    - 
+        id: frontmatter-font-size
+        title: Frontmatter font size
+        description: Font size of frontmatter
+        type: variable-number
+        default: 0.65
         format: rem
     - 
       id: Colors
@@ -127,7 +134,7 @@ body {
   --size-h6: .77rem;
 
   --font-paragraph: 1rem;
-  --front-matter-font-size: .65rem;
+  --frontmatter-font-size: .65rem;
 }
 
 /*****
@@ -310,22 +317,22 @@ body.theme-dark .table-view-table > thead > tr > th {
 /* ─────────────────────────────────────────────────── */
 .cm-line {clear: left;}
 
-.cm-hmd-frontmatter {padding:3px 5px; margin-bottom: -5px}
+/* .cm-hmd-frontmatter {padding:3px 5px; margin-bottom: -5px} */
 
 .cm-hmd-frontmatter,
 .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
 .cm-active .cm-hmd-frontmatter .cm-url  {
-  display: inline-block;
-  vertical-align: top;
-  font-size: var(--front-matter-font-size);
+  /* display: inline-block;
+  vertical-align: top; */
+  font-size: var(--frontmatter-font-size);
   color: rgba(0, 0, 0, .9);
-  text-overflow: hidden;
+  /* text-overflow: hidden; */
 }
 
 .cm-atom.cm-hmd-frontmatter {
-  clear: both;
-  min-width: 110px;
-  max-width: 300px;
+  /* clear: both; */
+  /* min-width: 110px; */
+  /* max-width: 300px; */
   color: var(--frontmatter-atom-color);
 }
 
@@ -334,9 +341,13 @@ body.theme-dark .table-view-table > thead > tr > th {
 .theme-dark .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
 .theme-dark .cm-active .cm-hmd-frontmatter .cm-url {color: rgba(255, 255, 255, .7) !important;}
 
+.cm-hmd-frontmatter.cm-meta {
+  padding-right: 10px;
+}
+
 .cm-hmd-frontmatter:last-child {
-  max-width: 500px;
-  overflow-wrap: break-word;
+  /* max-width: 500px; */
+  /* overflow-wrap: break-word; */
 }
 
 .cm-active .cm-hmd-frontmatter,
