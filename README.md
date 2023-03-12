@@ -1,4 +1,4 @@
-![](github-cover.png)
+![](assets/github-cover.png)
 
 ## Navigations
 
@@ -8,6 +8,7 @@
   - [Companion plugins](#companion-plugins)
   - [Extras](#extras)
     - [Checklists styles](#checklists-styles)
+    - [Colorful tags](#colorful-tags)
     - [Callout wide color variation](#callout-wide-color-variation)
 
 Do you have any suggestions or feedback, please, let me know: [https://forms.gle/AnQgXjt56NSmhDnn6](https://forms.gle/AnQgXjt56NSmhDnn6)
@@ -112,6 +113,12 @@ Beatifull typo and wonderfull reading:
 
 ![](https://i.imgur.com/YxXyktF.png)
 
+### Colorful tags
+
+Colorful tags in body.
+
+![](assets/tags.png)
+
 ### Callout wide color variation
 
 You can choose any known HTML color name to insert on your callouts. Just insert the plain name on the callout title separeted by | (vertical bar).
@@ -121,7 +128,7 @@ You can choose any known HTML color name to insert on your callouts. Just insert
 > This is the callout color fuchsia
 ```
 
-![](callout-examples.png)
+![](assets/callout-examples.png)
 
 This is all colors enabled.
 
