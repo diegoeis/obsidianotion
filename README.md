@@ -6,6 +6,9 @@
   - [To install](#to-install)
   - [Style Settings](#style-settings)
   - [Companion plugins](#companion-plugins)
+  - [Extras](#extras)
+    - [Checklists styles](#checklists-styles)
+    - [Callout wide color variation](#callout-wide-color-variation)
 
 Do you have any suggestions or feedback, please, let me know: [https://forms.gle/AnQgXjt56NSmhDnn6](https://forms.gle/AnQgXjt56NSmhDnn6)
 
@@ -28,6 +31,49 @@ Settings modal:
 ![dark settings modal](https://i.imgur.com/j8sJKqT.png)
 ![light settings modal](https://i.imgur.com/XMIdM57.png)
 
+## To install
+
+1. Open the **Settings** in Obsidian;
+1. Navigate to **Appearance** tab;
+1. Under the **Themes** section, click on the `Manage` button across from **Themes**
+1. Search for `Obsidianotion` in the Search field text
+1. Click `Use` and then you're done! 🎉
+
+## Style Settings
+
+You can customize some of visuals installing the [Plugin Style Settings](https://github.com/mgmeyers/obsidian-style-settings). The theme works very fine without it, but if you wanna change the headings and body paragraph font size or even the default color of sidebar, you will can.
+
+![Style Settings](https://i.imgur.com/qm6s2Ht.png)
+
+This settings will grow with time!
+
+## Companion plugins
+
+To install the plugins that have a good fit with Obsidianotion:
+
+- Go to `Community plugins` and turn off `Safe mode`
+- Under community themes search for the plugins name and click `Install`, then `Enable`
+
+The banner in this image was inserted using [Banner Plugin](https://github.com/noatpad/obsidian-banners).
+
+![light version banner](https://i.imgur.com/YOCQc22.png)
+
+![dark version](https://i.imgur.com/vChssQx.png)
+
+This theme works very good using [Make.md plugin](https://github.com/Make-md/makemd).
+
+![Make.md](https://i.imgur.com/V5WoR6N.png)
+
+[Projects](https://github.com/marcusolsson/obsidian-projects) to create views using your tags, dataview or folders.
+
+![Projects plugin](https://i.imgur.com/vdjtRfM.png)
+
+
+---
+
+## Extras
+
+### Checklists styles
 Obsidianotion supports a wide number of alternate checkbox types. These allow you to call out tasks that are incomplete, canceled, rescheduled, etc. See below for availale checkbox types.
 
 ![Checklists](https://i.imgur.com/vGk9jh5.png)
@@ -66,40 +112,159 @@ Beatifull typo and wonderfull reading:
 
 ![](https://i.imgur.com/YxXyktF.png)
 
+### Callout wide color variation
 
-## To install
+You can choose any known HTML color name to insert on your callouts. Just insert the plain name on the callout title separeted by | (vertical bar).
 
-1. Open the **Settings** in Obsidian;
-1. Navigate to **Appearance** tab;
-1. Under the **Themes** section, click on the `Manage` button across from **Themes**
-1. Search for `Obsidianotion` in the Search field text
-1. Click `Use` and then you're done! 🎉
+```
+>[!info|fuchsia] Color name: fuchsia
+> This is the callout color fuchsia
+```
 
-## Style Settings
+![](callout-examples.png)
 
-You can customize some of visuals installing the [Plugin Style Settings](https://github.com/mgmeyers/obsidian-style-settings). The theme works very fine without it, but if you wanna change the headings and body paragraph font size or even the default color of sidebar, you will can.
+This is all colors enabled.
 
-![Style Settings](https://i.imgur.com/qm6s2Ht.png)
-
-This settings will grow with time!
-
-## Companion plugins
-
-To install the plugins that have a good fit with Obsidianotion:
-
-- Go to `Community plugins` and turn off `Safe mode`
-- Under community themes search for the plugins name and click `Install`, then `Enable`
-
-The banner in this image was inserted using [Banner Plugin](https://github.com/noatpad/obsidian-banners).
-
-![light version banner](https://i.imgur.com/YOCQc22.png)
-
-![dark version](https://i.imgur.com/vChssQx.png)
-
-This theme works very good using [Make.md plugin](https://github.com/Make-md/makemd).
-
-![Make.md](https://i.imgur.com/V5WoR6N.png)
-
-[Projects](https://github.com/marcusolsson/obsidian-projects) to create views using your tags, dataview or folders.
-
-![Projects plugin](https://i.imgur.com/vdjtRfM.png)
+- indianred
+- lightcoral
+- salmon
+- darksalmon
+- lightsalmon
+- crimson
+- red
+- firebrick
+- darkred
+- pink
+- lightpink
+- hotpink
+- deeppink
+- mediumvioletred
+- palevioletred
+- lightsalmon
+- coral
+- tomato
+- orangered
+- darkorange
+- orange
+- gold
+- yellow
+- lightyellow
+- lemonchiffon
+- lightgoldenrodyellow
+- papayawhip
+- moccasin
+- peachpuff
+- palegoldenrod
+- khaki
+- darkkhaki
+- lavender
+- thistle
+- plum
+- violet
+- orchid
+- fuchsia
+- magenta
+- mediumorchid
+- mediumpurple
+- rebeccapurple
+- blueviolet
+- darkviolet
+- darkorchid
+- darkmagenta
+- purple
+- indigo
+- slateblue
+- darkslateblue
+- mediumslateblue
+- greenyellow
+- chartreuse
+- lawngreen
+- lime
+- limegreen
+- palegreen
+- lightgreen
+- mediumspringgreen
+- springgreen
+- mediumseagreen
+- seagreen
+- forestgreen
+- green
+- darkgreen
+- yellowgreen
+- olivedrab
+- olive
+- darkolivegreen
+- mediumaquamarine
+- darkseagreen
+- lightseagreen
+- darkcyan
+- teal
+- aqua
+- cyan
+- lightcyan
+- paleturquoise
+- aquamarine
+- turquoise
+- mediumturquoise
+- darkturquoise
+- cadetblue
+- steelblue
+- lightsteelblue
+- powderblue
+- lightblue
+- skyblue
+- lightskyblue
+- deepskyblue
+- dodgerblue
+- cornflowerblue
+- mediumslateblue
+- royalblue
+- blue
+- mediumblue
+- darkblue
+- navy
+- midnightblue
+- cornsilk
+- blanchedalmond
+- bisque
+- navajowhite
+- wheat
+- burlywood
+- tan
+- rosybrown
+- sandybrown
+- goldenrod
+- darkgoldenrod
+- peru
+- chocolate
+- saddlebrown
+- sienna
+- brown
+- maroon
+- white
+- snow
+- honeydew
+- mintcream
+- azure
+- aliceblue
+- ghostwhite
+- whitesmoke
+- seashell
+- beige
+- oldlace
+- floralwhite
+- ivory
+- antiquewhite
+- linen
+- lavenderblush
+- mistyrose
+- gainsboro
+- lightgray
+- silver
+- darkgray
+- gray
+- dimgray
+- lightslategray
+- slategray
+- darkslategray
+- black
