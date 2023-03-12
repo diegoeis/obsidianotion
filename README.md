@@ -1,6 +1,6 @@
 ![](https://i.imgur.com/JBo9AZ6.png)
 
-## Navigations
+## Contents
 
 - [About Obsidianotion](#about-obsidianotion)
   - [To install](#to-install)
@@ -115,9 +115,11 @@ Beatifull typo and wonderfull reading:
 
 ### Colorful tags
 
-A beatiful colorful tags.
+Tags inside notes beautiful multi-colored.
 
 ![](https://i.imgur.com/OqiY5mK.png)
+
+![](https://i.imgur.com/Uz5E6w7.png)
 
 ### Callout wide color variation
 
