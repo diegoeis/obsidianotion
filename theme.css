@@ -294,6 +294,7 @@ body {
 LIGHT VARIABLES
 *****/
 body.theme-light {
+  --content-bgcolor: rgb(255, 255, 255);
   --default-border-color: rgba(0, 0, 0, .06);
   --heading-text-color: #37352f;
   --font-color-paragraph: #37352f;
@@ -339,13 +340,12 @@ body.theme-light {
 DARK VARIABLES
 *****/
 body.theme-dark {
+  --content-bgcolor: rgb(25, 25, 25);
   --default-border-color: rgba(255, 255, 255, .06);
   --heading-text-color: #fff;
-  --colorBlack: rgb(0, 0, 0);
 
   --scrollbar-background: #272727;
   --scrollbar-color: #484C50;
-
 
   /*** sidebar ***/
   --sidebar-themed-bg: #202020;
@@ -361,7 +361,7 @@ body.theme-dark {
   --frontmatter-atom-background: rgba(255,255,255,.04);
   --frontmatter-atom-color: rgba(255, 255, 255, .4);
 
-  --tab-header-active-background: rgba(255,255,255, .07);
+  --tab-header-active-background: var(--content-bgcolor);
 
   /*** settings ***/
   --setting-item-description-color: #838383;
@@ -398,8 +398,11 @@ body.theme-dark {
 /* ─────────────────────────────────────────────────── */
 /* VIEW CONTENT                                        */
 /* ─────────────────────────────────────────────────── */
-.theme-dark .view-content .cm-editor {
-  background-color: rgb(25, 25, 25) !important;
+
+/*** body background color ***/
+.view-content .cm-editor,
+.workspace-split.mod-root .view-content {
+  background-color: var(--content-bgcolor) !important;
 }
 
 /*** Headings ***/
@@ -637,7 +640,6 @@ Tags Styles
 
 .workspace-ribbon.mod-left:before{border-color: var(--sidebar-themed-bg)}
 
-.mod-root .workspace-tabs .workspace-leaf {background-color: white !important;}
 
 /*** active tab ***/
 .workspace-tab-header.is-active.mod-active {background: var(--tab-header-active-background) !important}
