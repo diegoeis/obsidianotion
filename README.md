@@ -1,4 +1,4 @@
-![](assets/github-cover.png)
+![](https://i.imgur.com/JBo9AZ6.png)
 
 ## Navigations
 
@@ -115,9 +115,9 @@ Beatifull typo and wonderfull reading:
 
 ### Colorful tags
 
-Colorful tags in body.
+A beatiful colorful tags.
 
-![](assets/tags.png)
+![](https://i.imgur.com/OqiY5mK.png)
 
 ### Callout wide color variation
 
@@ -128,7 +128,7 @@ You can choose any known HTML color name to insert on your callouts. Just insert
 > This is the callout color fuchsia
 ```
 
-![](assets/callout-examples.png)
+![](https://i.imgur.com/HzNa8B4.png)
 
 This is all colors enabled.
 

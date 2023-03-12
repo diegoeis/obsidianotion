@@ -552,42 +552,6 @@ Tags Styles
 }
 
 
-/* 
-.markdown-preview-section > div a.tag:nth-of-type(10n + 1), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 2), span.cm-hashtag:nth-of-type(20n + 2) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(10n + 1), span.cm-hashtag-end:nth-of-type(20n + 2)) {
-  background-color: var(var(--tag-1-bgcolor));
-}
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 2), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 4), span.cm-hashtag:nth-of-type(20n + 4) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 3), span.cm-hashtag-end:nth-of-type(20n + 4))) {
-  background-color: var(--tag-2-bgcolor);
-}
-
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 3), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 6), span.cm-hashtag:nth-of-type(20n + 6) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 5), span.cm-hashtag-end:nth-of-type(20n + 6))) {
-  background-color: var(--tag-3-bgcolor);
-}
-
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 4), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 8), span.cm-hashtag:nth-of-type(20n + 8) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 7), span.cm-hashtag-end:nth-of-type(20n + 8))) {
-  background-color: var(--tag-4-bgcolor);
-}
-
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 5), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 10), span.cm-hashtag:nth-of-type(20n + 10) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 9), span.cm-hashtag-end:nth-of-type(20n + 10))) {
-  background-color: var(var(--tag-5-bgcolor));
-}
-
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 6), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 12), span.cm-hashtag:nth-of-type(20n + 12) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 11), span.cm-hashtag-end:nth-of-type(20n + 12))) {
-  background-color: var(--tag-6, var(--tag-6-bgcolor));
-}
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 7), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 14), span.cm-hashtag:nth-of-type(20n + 14) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 13), span.cm-hashtag-end:nth-of-type(20n + 14))) {
-  background-color: var(--tag-7-bgcolor);
-}
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 8), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 16), span.cm-hashtag:nth-of-type(20n + 16) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 15), span.cm-hashtag-end:nth-of-type(20n + 16))) {
-  background-color: var(--tag-8-bgcolor);
-}
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 9), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 18), span.cm-hashtag:nth-of-type(20n + 18) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 17), span.cm-hashtag-end:nth-of-type(20n + 18))) {
-  background-color: var(--tag-9-bgcolor);
-}
-:is(.markdown-preview-section > div a.tag:nth-of-type(10n + 10), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(20n + 20), span.cm-hashtag:nth-of-type(20n + 20) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(20n + 19), span.cm-hashtag-end:nth-of-type(20n + 20))) {
-  background-color: var(--tag-10-bgcolor);
-} */
-
 /* ─────────────────────────────────────────────────── */
 /* CUSTOM FRONTMATTER                                  */
 /* ─────────────────────────────────────────────────── */
