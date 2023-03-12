@@ -462,6 +462,8 @@ Body text
   max-width: 100%;
 }
 
+.external-link {background-position-y: 1px;}
+
 /* Lines of Text */
 .cm-contentContainer .cm-content .cm-line {
   font-size: var(--font-paragraph); 
@@ -469,11 +471,6 @@ Body text
 }
 
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
-/* 
-.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
-  width: 710px !important;
-  margin: 0 auto
-} */
 
 /** TABLE **/
 
@@ -482,11 +479,12 @@ body.theme-light .table-view-table > thead > tr > th {
   background: rgba(0,0,0,.05)
 }
 
-
 body.theme-dark .table-view-table > thead > tr > th {
   --default-border-color: rgba(255, 255, 255, .3);
   background: rgba(255,255,255,.05)
 }
+
+.markdown-rendered table {margin-block-start: 0;}
 
 .table-view-table > thead > tr > th,
 .cm-embed-block table thead tr th,
@@ -553,6 +551,7 @@ Tags Styles
 .cm-hashtag:nth-of-type(2n + 19) + .cm-hashtag {
   background-color: var(--tag-10-bgcolor);
 }
+
 
 
 /* ─────────────────────────────────────────────────── */
@@ -678,7 +677,6 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 
 /** border-right of icons bar **/
 .workspace-ribbon, 
-.workspace-tab-header, 
 .workspace-ribbon.mod-left.is-collapsed {border-right: 1px solid var(--default-border-color); }
 
 /** neutralizing other backgrounds **/
@@ -696,10 +694,6 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 
 .nav-buttons-container {
   justify-content: flex-start;
-}
-
-.nav-header {
-  padding: 20px 14px 10px;
 }
 
 .theme-dark .nav-header {border-bottom-color: var(--default-border-color);}
@@ -734,7 +728,6 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
   padding-left: 25px;
 }
 
-
 /* ─────────────────────────────────────────────────── */
 /* SETTINGS MODAL                                      */
 /* ─────────────────────────────────────────────────── */
@@ -759,7 +752,7 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 /* ─────────────────────────────────────────────────── */
 /* TAB BAR HEADER                                      */
 /* ─────────────────────────────────────────────────── */
-.workspace-tab-header-container {border: none}
+/* .workspace-tab-header-container {border: none} */
 .workspace-tab-header.is-active {box-shadow: none;}
 .workspace-tab-header {border-radius: 0;}
 
