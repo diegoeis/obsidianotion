@@ -1,6 +1,6 @@
 /*───────────────────────────────────────────────────────
 OBSIDIANOTION
-Version 1.0
+Version 1.1
 Created by @diegoeis
 
 Readme:
@@ -85,6 +85,20 @@ settings:
         default: 0.75
         format: rem
     - 
+        id: table-cell-fontsize
+        title: Table cell size
+        description: Font size of table cell
+        type: variable-number
+        default: 0.85
+        format: rem
+    - 
+        id: table-head-fontsize
+        title: Table Head size
+        description: Font size of table head cell
+        type: variable-number
+        default: 0.95
+        format: rem
+    - 
       id: Colors
       title: Colors
       type: heading
@@ -107,6 +121,7 @@ settings:
         default-dark: '#202020'
 */
 
+
 /* ─────────────────────────────────────────────────── */
 /* Main Theme Styling */
 /* ─────────────────────────────────────────────────── */
@@ -128,6 +143,22 @@ body {
   --tag-radius: 5px;
   --tag-color: #000;
   --tag-padding: 3px;
+  --tag-padding-y: 2px; 
+  --tag-padding-x: 6px;
+
+  /*** All typos ***/
+  --size-h1: 2.4rem;
+  --size-h2: 1.92rem;
+  --size-h3: 1.53rem;
+  --size-h4: 1.22rem;
+  --size-h5: .97rem;
+  --size-h6: .77rem;
+
+  --font-paragraph: 1rem;
+  --frontmatter-font-size: .75rem;
+
+  --table-cell-fontsize: .85rem;
+  --table-head-fontsize: .95rem;
 
   /*** COLORS ***/
   --color-brown-rgb: 97, 39, 39;
@@ -277,17 +308,6 @@ body {
   --color-slategray-rgb: 112, 128, 144;
   --color-darkslategray-rgb: 47, 79, 79;
 
-
-  /*** All typos ***/
-  --size-h1: 2.4rem;
-  --size-h2: 1.92rem;
-  --size-h3: 1.53rem;
-  --size-h4: 1.22rem;
-  --size-h5: .97rem;
-  --size-h6: .77rem;
-
-  --font-paragraph: 1rem;
-  --frontmatter-font-size: .75rem;
 }
 
 /*****
@@ -301,6 +321,8 @@ body.theme-light {
 
   --scrollbar-background: #EDECE9;
   --scrollbar-color: #D3D1CC;
+
+  --link-hover-color: #000;
 
   /*** sidebar ***/
   --sidebar-themed-bg: #F7F7F5;
@@ -322,11 +344,11 @@ body.theme-light {
   --setting-item-description-color: #7D7C78;
   --setting-item-name-color: #373530;
 
-/*** tags ***/
+  /*** tags ***/
   --tag-1-bgcolor: rgb(255, 214, 170);
-  --tag-2-bgcolor: rgb(155, 246, 254);
+  --tag-2-bgcolor: rgb(202, 255, 196);
   --tag-3-bgcolor: rgb(255, 173, 174);
-  --tag-4-bgcolor: rgb(202, 255, 196);
+  --tag-4-bgcolor: rgb(155, 246, 254);
   --tag-5-bgcolor: rgb(255, 198, 253);
   --tag-6-bgcolor: rgb(160, 197, 252);
   --tag-7-bgcolor: rgb(189, 179, 251);
@@ -346,6 +368,8 @@ body.theme-dark {
 
   --scrollbar-background: #272727;
   --scrollbar-color: #484C50;
+
+  --link-hover-color: #fff;
 
   /*** sidebar ***/
   --sidebar-themed-bg: #202020;
@@ -373,9 +397,9 @@ body.theme-dark {
 
   /*** tags ***/
   --tag-1-bgcolor: rgba(255, 214, 170, .75);
-  --tag-2-bgcolor: rgba(155, 246, 254, .75);
+  --tag-2-bgcolor: rgba(202, 255, 196, .75);
   --tag-3-bgcolor: rgba(255, 173, 174, .75);
-  --tag-4-bgcolor: rgba(202, 255, 196, .75);
+  --tag-4-bgcolor: rgba(155, 246, 254, .75);
   --tag-5-bgcolor: rgba(255, 198, 253, .75);
   --tag-6-bgcolor: rgba(160, 197, 252, .75);
   --tag-7-bgcolor: rgba(189, 179, 251, .75);
@@ -453,14 +477,12 @@ body.theme-dark {
 /*** 
 Body text 
 ***/
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-content,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line,
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
   max-width: var(--width-body-content);
 }
 
-.markdown-source-view.mod-cm6.is-readable-line-width .cm-content,
-.markdown-source-view.mod-cm6.is-readable-line-width .cm-line {
-  max-width: 100%;
-}
 
 .external-link {background-position-y: 1px;}
 
@@ -473,14 +495,12 @@ Body text
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
 
 /** TABLE **/
-
 body.theme-light .table-view-table > thead > tr > th {
-  --default-border-color: rgba(0, 0, 0, .3);
   background: rgba(0,0,0,.05)
 }
 
 body.theme-dark .table-view-table > thead > tr > th {
-  --default-border-color: rgba(255, 255, 255, .3);
+  border-bottom: 2px solid var(--default-border-color);
   background: rgba(255,255,255,.05)
 }
 
@@ -489,19 +509,28 @@ body.theme-dark .table-view-table > thead > tr > th {
 .table-view-table > thead > tr > th,
 .cm-embed-block table thead tr th,
 .markdown-rendered thead tr > th:nth-child(2n+2) {
-  font-size: .9rem;
-  border-bottom: 2px solid var(--default-border-color);
+  font-size: var(--table-head-fontsize) !important;
 }
 
 .table-view-table > tbody > tr > td,
 .cm-embed-block table tbody tr td {
-  font-size: .8rem !important;
+  font-size: var(--table-cell-fontsize) !important;
   border-bottom: 1px solid var(--default-border-color)
 }
 
 /*** 
 Tags Styles 
 ***/
+.cm-hashtag {
+  padding: var(--tag-padding-y) var(--tag-padding-x) var(--tag-padding);
+}
+
+.cm-hashtag.cm-hashtag-begin {padding-right: 0;}
+
+.cm-hashtag.cm-hashtag-end {
+  padding-left: 0;
+  padding-right: var(--tag-padding-x) !important;
+}
 
 .cm-hashtag:nth-of-type(2n + 1),
 .cm-hashtag:nth-of-type(2n + 1) + .cm-hashtag {
@@ -605,14 +634,24 @@ Tags Styles
   color: rgba(0, 0, 0, .6);
 } 
 
-.markdown-rendered .internal-link {
+.markdown-rendered .internal-link,
+.cm-link,
+.external-link,
+.internal-link {
   border-bottom: .05em solid; 
   transition: color linear .10s;
   text-decoration: none;
 }
+.cm-link .cm-underline {text-decoration: none !important;}
 
-.markdown-rendered .internal-link:hover {color:#000; text-decoration: none;}
-.theme-dark .markdown-rendered .internal-link:hover {color:#fff;}
+.cm-link .cm-underline:hover,
+.cm-link:hover,
+.external-link:hover,
+.markdown-rendered .internal-link:hover,
+.internal-link:hover {
+  text-decoration: none !important;
+  color: var(--link-hover-color) !important;
+}
 
 /* ─────────────────────────────────────────────────── */
 /* CUSTOM LEFT SIDEBAR                                 */
