@@ -24,6 +24,11 @@ settings:
         default: 700
         format: px
     - 
+        id: small-pinned-tabs
+        title: Small Pinned Tabs
+        description: Pinned tabs get smaller
+        type: class-toggle
+    - 
       id: Heading
       title: Fonts and Typograph
       type: heading
@@ -816,6 +821,10 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
   border: 0px;
 }
 
+.small-pinned-tabs .workspace-tab-header:has(.mod-pinned) {
+  max-width: 70px !important;
+}
+
 /* ─────────────────────────────────────────────────── */
 /* MAKE.md Plugin custom */
 /* ─────────────────────────────────────────────────── */
@@ -878,6 +887,17 @@ body:not(.is-mobile) .mk-tree-wrapper .mk-drag-handle {cursor: grab;}
 
 .theme-dark .mk-tree-item.nav-folder-title.is-active.is-selected,
 .theme-dark .mk-tree-item.nav-file-title.is-active.is-selected {color: #fff;}
+
+
+
+/* ------------------- */
+/* Projects Plugin */
+/* ------------------- */
+
+[role="row"]:hover [role="gridcell"] {
+  background-color: var(--nav-item-background-active);
+}
+
 
 /* ------------------- */
 /* Tasks Plugin */

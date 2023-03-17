@@ -9,6 +9,7 @@
   - [Extras](#extras)
     - [Checklists styles](#checklists-styles)
     - [Colorful tags](#colorful-tags)
+    - [Small pinned tabs](#small-pinned-tabs)
     - [Callout wide color variation](#callout-wide-color-variation)
 
 Do you have any suggestions or feedback, please, let me know: [https://forms.gle/AnQgXjt56NSmhDnn6](https://forms.gle/AnQgXjt56NSmhDnn6)
@@ -120,6 +121,13 @@ Tags inside notes beautiful multi-colored.
 ![](https://i.imgur.com/OqiY5mK.png)
 
 ![](https://i.imgur.com/Uz5E6w7.png)
+
+### Small pinned tabs
+
+If you use Style Settings plugin, do you have a option to get pinned tabs smaller.
+
+![](https://i.imgur.com/w96xdCu.gif)
+
 
 ### Callout wide color variation
 
