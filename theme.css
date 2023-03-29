@@ -961,6 +961,11 @@ ol.plugin-tasks-query-result {
   font-size: .9rem;
 }
 
+.markdown-rendered ul, .markdown-rendered ol {display: inline-block;}
+
+.dataview.dataview-container h4 {margin-bottom: 0;}
+
+
 /* ------------------- */
 /* Checkbox styling & icons. Credit Minimal theme: https://minimal.guide/Block+types/Checklists#Checkbox+styling */
 /* Support @kepano - https://www.buymeacoffee.com/kepano */
