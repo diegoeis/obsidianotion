@@ -453,6 +453,9 @@ body.theme-dark {
 
 
 /*** Banner ***/
+@media print {.markdown-reading-view .obsidian-banner-wrapper {display: none;}}
+
+
 .header-cover  {
   position: relative;
 }
@@ -626,6 +629,8 @@ Tags Styles
 .cm-line {clear: left;}
 
 /* .cm-hmd-frontmatter {padding:3px 5px; margin-bottom: -5px} */
+
+.cm-contentContainer .cm-content .cm-line:has(.cm-hmd-frontmatter) {line-height: 1;}
 
 .cm-hmd-frontmatter,
 .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
@@ -960,8 +965,6 @@ ol.plugin-tasks-query-result {
   padding-left: 0;
   font-size: .9rem;
 }
-
-.markdown-rendered ul, .markdown-rendered ol {display: inline-block;}
 
 .dataview.dataview-container h4 {margin-bottom: 0;}
 
