@@ -330,7 +330,7 @@ body.theme-light {
   --link-hover-color: #000;
 
   /*** sidebar ***/
-  --sidebar-themed-bg: #F7F7F5;
+  --sidebar-themed-bg: rgb(247, 247, 247);
   --nav-item-color: #72716D;
   --nav-item-color-hover: #6C6B67;
   --nav-item-active: #373530; /*373530*/
@@ -377,7 +377,7 @@ body.theme-dark {
   --link-hover-color: #fff;
 
   /*** sidebar ***/
-  --sidebar-themed-bg: #202020;
+  --sidebar-themed-bg: rgb(32, 32, 32);
   --nav-item-color: #9B9B9B;
   --nav-item-color-hover: #D7D7D7;
   --nav-item-active: #FFF;
@@ -701,10 +701,19 @@ Tags Styles
 .clickable-icon.side-dock-ribbon-action {cursor:pointer;}
 
 /** Container of vault name in sidebar **/
-.nav-folder.mod-root > .nav-folder-title {
-  background-color: transparent !important;
+.nav-folder.mod-root > .tree-item-self.nav-folder-title {
+  background-color: rgba(var(--sidebar-themed-bg), .3) !important;
   color: inherit !important;
   text-transform: uppercase;
+  font-size: .9rem;
+  border-bottom: 1px solid var(--default-border-color);
+  border-radius: 0;
+  padding: 1.4vmin 0;
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+  position: sticky;
+  top: 0; left: 0;
 }
 
 /*** defining background of elements in workspace ***/
