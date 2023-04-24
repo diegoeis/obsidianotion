@@ -948,24 +948,45 @@ body:not(.is-mobile) .mk-tree-wrapper .mk-drag-handle {cursor: grab;}
 /* ------------------- */
 /* Tasks Plugin */
 /* ------------------- */
+
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  margin-bottom: 5px;
+}
+
+h1.tasks-group-heading p,
+h2.tasks-group-heading p,
+h3.tasks-group-heading p,
+h4.tasks-group-heading p,
+h5.tasks-group-heading p,
+h6.tasks-group-heading p {margin: 0;}
+
+
+.tasks-group-heading:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+h4.tasks-group-heading {
+  font-size: 1.1rem;
+  padding-top: 20px;
+  margin-top: 20px;
+  /* border-top: 1px solid rgba(0, 0, 0, .1); */
+}
+
 h5.tasks-group-heading {
-  font-size: 17px;
+  font-size: .9rem;
   padding-top: 5px;
 }
 
-h4.tasks-group-heading:first-child {
-  border-top: none;
-  margin-top: 0;
-}
-h4.tasks-group-heading {
-  font-size: 21px;
-  padding-top: 20px;
-  margin-top: 40px;
-  border-top: 1px solid rgba(0, 0, 0, .1);
-}
 
 li.task-list-item.plugin-tasks-list-item {
-  margin-bottom: 7px;
+  margin-bottom: 13px;
   line-height: 1.5;
 }
 
@@ -976,6 +997,36 @@ ol.plugin-tasks-query-result {
 }
 
 .dataview.dataview-container h4 {margin-bottom: 0;}
+
+.markdown-source-view.mod-cm6 .cm-embed-block {
+  padding: 10px;
+  display: table;
+  position: relative;
+  left: -10px;
+}
+
+.markdown-source-view.mod-cm6 .cm-embed-block:hover {
+  border-radius: 2px;
+  box-shadow: none;
+  outline: 2px solid var(--default-border-color);
+  border:none;
+
+}
+
+.mod-cm6 .cm-embed-block .tasks-count {
+  font-size: .9rem;
+  padding: 2px 5px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 30px 0 0;
+  float:right;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+
+ul.plugin-tasks-query-result, ol.plugin-tasks-query-result {
+  padding-top: 5px;
+  margin-top: 0;
+}
 
 
 /* ------------------- */
