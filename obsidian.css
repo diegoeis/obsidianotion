@@ -148,7 +148,6 @@ body {
   *****/
   
   --width-body-content: 900px;
-  --frame-left-space: 70px !important;
 
   /*** tags ***/
   --tag-radius: 5px;
@@ -319,6 +318,10 @@ body {
   --color-slategray-rgb: 112, 128, 144;
   --color-darkslategray-rgb: 47, 79, 79;
 
+}
+
+body.eis-hide-ribbon {
+  --frame-left-space: 70px !important;
 }
 
 /*****
@@ -714,7 +717,7 @@ Tags Styles
   font-size: .9rem;
   border-bottom: 1px solid var(--default-border-color);
   border-radius: 0;
-  padding: 1.4vmin 0;
+  padding: 1.4vmin 2.5vmin;
   margin-bottom: 20px;
   backdrop-filter: blur(6px);
   z-index: 2;
@@ -794,6 +797,8 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 
 .theme-dark .nav-header {border-bottom-color: var(--default-border-color);}
 
+.nav-files-container {padding: 0;}
+.nav-folder.mod-root > .nav-folder-children {padding: 0 10px;}
 
 .clickable-icon[aria-label="New note"] {
   position: fixed;
@@ -801,7 +806,8 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
   bottom: 0;
   border-top: 1px solid var(--default-border-color);
   z-index: 1;
-  background: var(--sidebar-themed-bg);
+  /* background: var(--sidebar-themed-bg); */
+  backdrop-filter: blur(6px);
   width: 100%;
   padding: 10px;
   opacity: 1;
