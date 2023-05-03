@@ -892,7 +892,8 @@ div.mk-header.cm-line {padding-bottom: 50px !important;}
 .mk-file-context-file .mk-inline-title.inline-title,
 .markdown-source-view.mod-cm6.is-readable-line-width .mk-file-context-file > .mk-inline-title.inline-title {display: none !important;}
 
-.mk-file-context-collapse {left: -25px; top: 95px;cursor: pointer;}
+.mk-tree-wrapper.mk-section-wrapper > .mk-section .mk-collapse,
+.mk-file-context-collapse {left: -25px; top: 95px; cursor: pointer;}
 .mk-header .mk-file-context-collapse.mk-collapsed svg {color: rgba(0, 0, 0, .2);}
 
 .mk-collapse.mk-icon-xsmall.mk-file-context-collapse.mk-collapsed:after {
@@ -966,28 +967,43 @@ h4.tasks-group-heading p,
 h5.tasks-group-heading p,
 h6.tasks-group-heading p {margin: 0;}
 
-
 .tasks-group-heading:first-child {
   border-top: none;
   margin-top: 0;
   padding-top: 0;
 }
+
 h4.tasks-group-heading {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding-top: 20px;
   margin-top: 20px;
   /* border-top: 1px solid rgba(0, 0, 0, .1); */
 }
 
 h5.tasks-group-heading {
-  font-size: .9rem;
+  font-size: 1.1rem;
   padding-top: 5px;
 }
 
-
 li.task-list-item.plugin-tasks-list-item {
-  margin-bottom: 13px;
+  margin-bottom: 15px;
   line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li.task-list-item.plugin-tasks-list-item .task-extras {
+  flex: 1 0 100%; 
+  padding-left: 23px;
+  margin-top: -3px;
+  /* text-align: right; */
+  font-size: 0.8rem;
+}
+
+.tasks-list-text {
+  position: relative;
+  top: -5px;
+  flex: 1;
 }
 
 ul.plugin-tasks-query-result,

@@ -3,14 +3,13 @@
 ## Contents
 
 - [About Obsidianotion](#about-obsidianotion)
+  - [Checklists styles](#checklists-styles)
+  - [Colorful tags](#colorful-tags)
+  - [Small pinned tabs](#small-pinned-tabs)
   - [To install](#to-install)
   - [Style Settings](#style-settings)
   - [Companion plugins](#companion-plugins)
-  - [Extras](#extras)
-    - [Checklists styles](#checklists-styles)
-    - [Colorful tags](#colorful-tags)
-    - [Small pinned tabs](#small-pinned-tabs)
-    - [Callout wide color variation](#callout-wide-color-variation)
+  - [Callout wide color variation](#callout-wide-color-variation)
 
 Do you have any suggestions or feedback, please, let me know: [https://forms.gle/AnQgXjt56NSmhDnn6](https://forms.gle/AnQgXjt56NSmhDnn6)
 
@@ -24,14 +23,61 @@ This theme can help people who are migrating from Notion to Obsidian to feel mor
 ![light](https://i.imgur.com/aXRvZjr.png)
 ![dark](https://i.imgur.com/03F0MFL.png)
 
-My graph view:
+## Checklists styles
+Obsidianotion supports a wide number of alternate checkbox types. These allow you to call out tasks that are incomplete, canceled, rescheduled, etc. See below for availale checkbox types.
 
-![graph](https://i.imgur.com/b8fPYNL.png)
+![Checklists](https://i.imgur.com/vGk9jh5.png)
 
-Settings modal:
+```
+Basic checklists:
+- [ ] to-do
+- [/] incomplete
+- [x] done
+- [-] canceled
+- [>] forwarded
+- [<] scheduling
 
-![dark settings modal](https://i.imgur.com/j8sJKqT.png)
-![light settings modal](https://i.imgur.com/XMIdM57.png)
+Extras checklists:
+- [?] question
+- [!] important
+- [*] star
+- ["] quote
+- [l] location
+- [b] bookmark
+- [i] information
+- [S] savings
+- [I] idea
+- [p] pros
+- [c] cons
+- [f] fire
+- [k] key
+- [w] win
+- [u] up
+- [d] down
+```
+
+_These are the same checkbox styles used in [Things](https://github.com/colineckert/obsidian-things) and [Minimal](https://minimal.guide/Block+types/Checklists#Checkbox+styling) themes. So, give it a try too._
+
+Beatifull typo and wonderfull reading:
+
+![](https://i.imgur.com/YxXyktF.png)
+
+## Colorful tags
+
+Tags inside notes beautiful multi-colored.
+
+![](https://i.imgur.com/OqiY5mK.png)
+
+![](https://i.imgur.com/Uz5E6w7.png)
+
+## Small pinned tabs
+
+If you use Style Settings plugin, do you have a option to get pinned tabs smaller.
+
+![](https://i.imgur.com/w96xdCu.gif)
+
+
+
 
 ## To install
 
@@ -72,64 +118,7 @@ This theme works very good using [Make.md plugin](https://github.com/Make-md/mak
 
 
 ---
-
-## Extras
-
-### Checklists styles
-Obsidianotion supports a wide number of alternate checkbox types. These allow you to call out tasks that are incomplete, canceled, rescheduled, etc. See below for availale checkbox types.
-
-![Checklists](https://i.imgur.com/vGk9jh5.png)
-
-```
-Basic checklists:
-- [ ] to-do
-- [/] incomplete
-- [x] done
-- [-] canceled
-- [>] forwarded
-- [<] scheduling
-
-Extras checklists:
-- [?] question
-- [!] important
-- [*] star
-- ["] quote
-- [l] location
-- [b] bookmark
-- [i] information
-- [S] savings
-- [I] idea
-- [p] pros
-- [c] cons
-- [f] fire
-- [k] key
-- [w] win
-- [u] up
-- [d] down
-```
-
-_These are the same checkbox styles used in [Things](https://github.com/colineckert/obsidian-things) and [Minimal](https://minimal.guide/Block+types/Checklists#Checkbox+styling) themes. So, give it a try too._
-
-Beatifull typo and wonderfull reading:
-
-![](https://i.imgur.com/YxXyktF.png)
-
-### Colorful tags
-
-Tags inside notes beautiful multi-colored.
-
-![](https://i.imgur.com/OqiY5mK.png)
-
-![](https://i.imgur.com/Uz5E6w7.png)
-
-### Small pinned tabs
-
-If you use Style Settings plugin, do you have a option to get pinned tabs smaller.
-
-![](https://i.imgur.com/w96xdCu.gif)
-
-
-### Callout wide color variation
+## Callout wide color variation
 
 You can choose any known HTML color name to insert on your callouts. Just insert the plain name on the callout title separeted by | (vertical bar).
 
@@ -285,3 +274,14 @@ This is all colors enabled.
 - slategray
 - darkslategray
 - black
+
+
+## My graph view:
+
+![graph](https://i.imgur.com/b8fPYNL.png)
+
+## Settings modal:
+
+![dark settings modal](https://i.imgur.com/j8sJKqT.png)
+![light settings modal](https://i.imgur.com/XMIdM57.png)
+
