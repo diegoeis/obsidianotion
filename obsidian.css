@@ -528,7 +528,6 @@ Body text
 /* Lines of Text */
 .cm-contentContainer .cm-content .cm-line {
   font-size: var(--font-paragraph); 
-  line-height: 1.5;
 }
 
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
