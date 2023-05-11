@@ -710,15 +710,15 @@ Tags Styles
 
 /** Container of vault name in sidebar **/
 .nav-folder.mod-root > .tree-item-self.nav-folder-title {
-  background-color: rgba(var(--sidebar-themed-bg), .3) !important;
+  background-color: var(--sidebar-themed-bg) !important;
   color: inherit !important;
   text-transform: uppercase;
   font-size: .9rem;
   border-bottom: 1px solid var(--default-border-color);
   border-radius: 0;
-  padding: 1.4vmin 2.5vmin;
+  padding: 0px 15px 10px;
   margin-bottom: 20px;
-  backdrop-filter: blur(6px);
+  /* backdrop-filter: blur(6px); */
   z-index: 2;
   position: sticky;
   top: 0; left: 0;
