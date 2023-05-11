@@ -34,6 +34,12 @@ settings:
         description: Hiden ribbon left bar icons
         type: class-toggle
     - 
+        id: new-note-button-position-bottom
+        title: Enable default position of new note button
+        description: When enable, we put the new note button at the bottom of sidebar
+        type: class-toggle
+        default: true
+    - 
       id: Heading
       title: Fonts and Typograph
       type: heading
@@ -799,14 +805,19 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
 .nav-files-container {padding: 0;}
 .nav-folder.mod-root > .nav-folder-children {padding: 0 10px;}
 
-.clickable-icon[aria-label="New note"] {
+
+
+/*** IF NEW NOT BUTTON IS ACTIVATED ***/
+.new-note-button-position-bottom .nav-files-container {margin-bottom: 40px;}
+
+.new-note-button-position-bottom .clickable-icon[aria-label="New note"] {
   position: fixed;
   left: 0;
   bottom: 0;
   border-top: 1px solid var(--default-border-color);
   z-index: 1;
-  /* background: var(--sidebar-themed-bg); */
-  backdrop-filter: blur(6px);
+  background: var(--sidebar-themed-bg);
+  /* backdrop-filter: blur(6px); */
   width: 100%;
   padding: 10px;
   opacity: 1;
@@ -814,12 +825,13 @@ body:not(.is-grabbing) .nav-folder-title:hover {cursor: pointer;}
   text-overflow: ellipsis;
   display: inline-block;
 }
-.clickable-icon[aria-label="New note"]:hover,
-.clickable-icon[aria-label="New note"]::after {background-color: var(--nav-item-background-hover); color: var(--nav-item-color-hover)}
 
-.clickable-icon[aria-label="New note"] svg {display: none;}
+.new-note-button-position-bottom .clickable-icon[aria-label="New note"]:hover,
+.new-note-button-position-bottom .clickable-icon[aria-label="New note"]::after {background-color: var(--nav-item-background-hover); color: var(--nav-item-color-hover)}
 
-.clickable-icon[aria-label="New note"]::after {
+.new-note-button-position-bottom .clickable-icon[aria-label="New note"] svg {display: none;}
+
+.new-note-button-position-bottom .clickable-icon[aria-label="New note"]::after {
   content: attr(aria-label);
   text-overflow: ellipsis;
   font-weight: 600;
