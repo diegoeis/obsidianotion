@@ -163,15 +163,22 @@ body {
   --tag-padding-x: 6px;
 
   /*** All typos ***/
-  --size-h1: 2.4rem;
+  /* --size-h1: 2.4rem;
   --size-h2: 1.92rem;
   --size-h3: 1.53rem;
   --size-h4: 1.22rem;
   --size-h5: .97rem;
-  --size-h6: .77rem;
+  --size-h6: .77rem; */
+
+	--size-h1: 2.30rem;
+	--size-h2: 1.95rem;
+	--size-h3: 1.5rem;
+	--size-h4: 1.4rem;
+	--size-h5: 1.1rem;
+	--size-h6: .95rem;
 
   --font-paragraph: 1rem;
-  --frontmatter-font-size: .75rem;
+  --frontmatter-font-size: .65rem;
 
   --table-cell-fontsize: .85rem;
   --table-head-fontsize: .95rem;
@@ -649,20 +656,17 @@ Tags Styles
 .cm-hmd-frontmatter,
 .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
 .cm-active .cm-hmd-frontmatter .cm-url  {
-  /* display: inline-block;
-  vertical-align: top; */
+  display: inline-block;
+  vertical-align: top;
   font-size: var(--frontmatter-font-size);
   color: rgba(0, 0, 0, .9);
+  padding-bottom: 10px !important;
   /* text-overflow: hidden; */
 }
 
 .cm-atom.cm-hmd-frontmatter {
-  /* clear: both; */
-  /* min-width: 110px; */
-  /* max-width: 300px; */
   color: var(--frontmatter-atom-color);
 }
-
 
 .theme-dark .cm-hmd-frontmatter ~ .cm-hmd-frontmatter,
 .theme-dark .cm-hmd-frontmatter + img.cm-widgetBuffer + .cm-url,
@@ -1039,11 +1043,12 @@ ol.plugin-tasks-query-result {
 
 .dataview.dataview-container h4 {margin-bottom: 0;}
 
-.markdown-source-view.mod-cm6 .cm-embed-block {
+/* .markdown-source-view.mod-cm6 .cm-embed-block {
   padding: 10px;
   display: table;
   position: relative;
   left: -10px;
+  width: 100%;
 }
 
 .markdown-source-view.mod-cm6 .cm-embed-block:hover {
@@ -1051,8 +1056,7 @@ ol.plugin-tasks-query-result {
   box-shadow: none;
   outline: 2px solid var(--default-border-color);
   border:none;
-
-}
+} */
 
 .mod-cm6 .cm-embed-block .tasks-count {
   font-size: .9rem;
