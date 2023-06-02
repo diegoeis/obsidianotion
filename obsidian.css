@@ -365,7 +365,7 @@ body.theme-light {
   --nav-item-background-hover:  #E8E8E6;
   --nav-item-background-active: #EDEDEB;
 
-  --color-base-15: rgba(0, 0, 0, .05);
+  --color-base-15: #f0f0f0;
 
   /*** content ***/
   --frontmatter-active-bg: rgba(0, 0, 0, .15);
@@ -413,7 +413,7 @@ body.theme-dark {
   --nav-item-background-hover:  #2C2C2C;
   --nav-item-background-active: #252525;
 
-  --color-base-15: rgba(255, 255, 255, .05);
+  --color-base-15: #1f1f1f;
 
   /*** content ***/
   --frontmatter-active-bg: rgba(255,255,255,.15);
@@ -719,6 +719,10 @@ Tags Styles
   justify-content: flex-end;
 }
 
+.workspace-ribbon.mod-left.is-collapsed {
+  border-right-color: var(--color-base-15)
+}
+
 .nav-buttons-container svg {
   width: 15px;
 }
@@ -772,17 +776,6 @@ Tags Styles
 
 }
 
-
-.sidebar-dark .workspace-tabs .workspace-leaf,
-.sidebar-dark .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {
-  background-color: #262626
-}
-
-.sidebar-dark .nav-file-title-content,
-.sidebar-dark .nav-folder-title-content {
-  color: #BABABA;
-}
-
 .mod-root > .nav-folder-title[data-path="/"] {
   margin: 0;
   padding: 10px 0;
@@ -805,11 +798,18 @@ Tags Styles
   background-color: var(--color-base-10);
 }
 
-.mod-left-split .workspace-tab-header-container,
-.nav-header,
-.workspace-ribbon.mod-left:before {
-  background-color: var(--color-base-20);
+.theme-dark .nav-files-container {background-color: var(--color-base-25);}
+
+.workspace-ribbon.mod-left:before, 
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
+  background-color: var(--color-base-10);
 }
+
+/* .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {background-color: var(--color-base-15)} */
+
+
+.sidebar-toggle-button {padding-left: var(--size-4-3); opacity: .5;}
+.workspace-tab-header-inner {padding: 0 var(--size-4-1);}
 
 .nav-header,
 .mod-root > .nav-folder-title[data-path="/"] {padding-left: var(--size-4-2);}
