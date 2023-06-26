@@ -46,6 +46,12 @@ settings:
         type: class-toggle
         default: true
     - 
+        id: eis-empty-bg
+        title: Show background in empty window
+        description: When activated will show a background in empty windows (new files)
+        type: class-toggle
+        default: false
+    - 
         id: new-note-button-position-bottom
         title: Enable default position of new note button
         description: When enable, we put the new note button at the bottom of sidebar
@@ -149,6 +155,8 @@ settings:
 
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
+
 body {
 
   -webkit-font-smoothing: antialiased;
@@ -179,17 +187,22 @@ body {
 	--size-h5: 1.1rem;
 	--size-h6: .95rem;
 
-  --font-paragraph: 1rem;
+  --font-paragraph: 1 rem;
   --frontmatter-font-size: .65rem;
+  --font-family-serif: Inter, Helvetica, Arial, sans-serif;
 
   --table-cell-fontsize: .85rem;
   --table-head-fontsize: .95rem;
 
-
   --ribbon-background: var(--color-base-20);
   --divider-color: var(--color-base-15);
 
+  --tab-radius-active: 0;
+
   /*** COLORS ***/
+
+  --tab-container-background2: rgba(0,0,0,.07);
+
   --color-brown-rgb: 97, 39, 39;
   --color-grey-rgb: var(--color-gray-rgb);
   --color-black-rgb: 0, 0, 0;
@@ -459,6 +472,11 @@ body.theme-dark {
 /* VIEW CONTENT                                        */
 /* ─────────────────────────────────────────────────── */
 
+.view-header-title {letter-spacing: 0.05rem;}
+.show-view-header .view-header {
+  border-top-left-radius: 5px;
+  background-color: transparent;
+}
 
 /*** action options when tab is empty ***/
 .empty-state-title {margin-bottom: 5vmin;}
@@ -491,7 +509,7 @@ body.theme-dark {
 /*** body background color ***/
 .view-content .cm-editor,
 .workspace-split.mod-root .view-content {
-  background-color: var(--content-bgcolor) !important;
+  /* background-color: var(--content-bgcolor) !important; */
 }
 
 /*** Headings ***/
@@ -579,6 +597,8 @@ Body text
 /* Lines of Text */
 .cm-contentContainer .cm-content .cm-line {
   font-size: var(--font-paragraph); 
+  font-family: var(--font-family-serif);
+  line-height: 1.6;
 }
 
 .theme-dark .markdown-source-view.mod-cm6 .cm-contentContainer {color: rgb(200, 200, 200);}
@@ -610,6 +630,10 @@ body.theme-dark .table-view-table > thead > tr > th {
 /*** 
 Tags Styles 
 ***/
+.workspace-tab-header::before, .workspace-tab-header::after {
+  border-radius: 0;
+}
+
 .cm-hashtag {
   padding: var(--tag-padding-y) var(--tag-padding-x) var(--tag-padding);
 }
@@ -801,12 +825,12 @@ Tags Styles
 .theme-dark .nav-files-container {background-color: var(--color-base-25);}
 
 .workspace-ribbon.mod-left:before, 
-.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
-  background-color: var(--color-base-10);
+.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right,
+.workspace-tab-header-container {
+  background-color: var(--tab-container-background2) !important;
 }
 
 /* .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {background-color: var(--color-base-15)} */
-
 
 .sidebar-toggle-button {padding-left: var(--size-4-3); opacity: .5;}
 .workspace-tab-header-inner {padding: 0 var(--size-4-1);}
@@ -853,6 +877,29 @@ Tags Styles
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsla(45, 8%, 55%)' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'%3E%3C/line%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E") no-repeat left center;
   background-size: 1.2rem;
   padding-left: 25px;
+}
+
+
+.eis-empty-bg .empty-state:before {
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25vmin;
+  background: url(https://tinypng.com/backend/opt/output/g7cwjkrevnk7ewfjc67zyrbzsa94np5w/16326926_rm324-element-boom-10.jpg) no-repeat center;
+  background-size: cover;
+
+}
+
+.eis-empty-bg .empty-state:after {
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25vmin;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
 }
 
 /* ─────────────────────────────────────────────────── */
