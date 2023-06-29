@@ -164,17 +164,17 @@ settings:
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
 
 body.eis-small-font {
-  --size-h1: 1.6rem !important;
+  --size-h1: 1.65rem !important;
 	--size-h2: 1.4rem !important;
 	--size-h3: 1.2rem !important;
 	--size-h4: 1rem !important;
 	--size-h5: .95rem !important;
 	--size-h6: .75rem !important;
 
-  --font-paragraph: .8rem;
+  --font-paragraph: .9rem;
   --frontmatter-font-size: .6rem;
 
-  --width-body-content: 700px;
+  --width-body-content: 650px;
 
 }
 
@@ -187,7 +187,21 @@ body {
   GENERAL VARIABLES
   *****/
   
+  --shadow-l: 0px 0px 25px rgba(0, 0, 0, 0.4);
+  
+  /*** modal ***/
+  --modal-radius: 5px;
+  --modal-border-color: none;
+
   --width-body-content: 900px;
+
+
+  /*** buttons ***/
+
+  --button-radius: 3px;
+
+  --input-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.22);
+  --button-shadow-warning: 0px 0px 4px 1px rgba(0, 0, 0, 0.22);
 
   /*** tags ***/
   --tag-radius: 5px;
@@ -197,9 +211,13 @@ body {
   --tag-padding-x: 6px;
 
   /*** All typos ***/
-
-  --font-smallest: 0.7rem;
+  --font-smallest: .75rem;
   --tag-size: .75rem;
+
+  --font-ui-smaller: .65rem;
+  --font-ui-small: .75rem;
+  --font-ui-medium: .85rem;
+  --font-ui-larger: 1.45rem;
   
 	--size-h1: 2.30rem;
 	--size-h2: 1.95rem;
@@ -304,7 +322,6 @@ body {
   --color-teal-rgb: 0, 128, 128;
   --color-aqua-rgb: 0, 255, 255;
   --color-cyan-rgb: 0, 255, 255;
-  --color-lightcyan-rgb: 224, 255, 255;
   --color-paleturquoise-rgb: 175, 238, 238;
   --color-aquamarine-rgb: 127, 255, 212;
   --color-turquoise-rgb: 64, 224, 208;
@@ -315,10 +332,7 @@ body {
   --color-lightsteelblue-rgb: 176, 196, 222;
   --color-powderblue-rgb: 176, 224, 230;
   --color-lightblue-rgb: 173, 216, 230;
-  --color-skyblue-rgb: 135, 206, 235;
   --color-lightskyblue-rgb: 135, 206, 250;
-  --color-deepskyblue-rgb: 0, 191, 255;
-  --color-dodgerblue-rgb: 30, 144, 255;
   --color-cornflowerblue-rgb: 100, 149, 237;
   --color-mediumslateblue-rgb: 123, 104, 238;
   --color-royalblue-rgb: 65, 105, 225;
@@ -327,11 +341,8 @@ body {
   --color-darkblue-rgb: 0, 0, 139;
   --color-navy-rgb: 0, 0, 128;
   --color-midnightblue-rgb: 25, 25, 112;
-  --color-cornsilk-rgb: 255, 248, 220;
-  --color-blanchedalmond-rgb: 255, 235, 205;
   --color-bisque-rgb: 255, 228, 196;
   --color-navajowhite-rgb: 255, 222, 173;
-  --color-wheat-rgb: 245, 222, 179;
   --color-burlywood-rgb: 222, 184, 135;
   --color-tan-rgb: 210, 180, 140;
   --color-rosybrown-rgb: 188, 143, 143;
@@ -345,7 +356,6 @@ body {
   --color-brown-rgb: 165, 42, 42;
   --color-maroon-rgb: 128, 0, 0;
   --color-white-rgb: 255, 255, 255;
-  --color-snow-rgb: 255, 250, 250;
   --color-honeydew-rgb: 240, 255, 240;
   --color-mintcream-rgb: 245, 255, 250;
   --color-azure-rgb: 240, 255, 255;
@@ -358,10 +368,6 @@ body {
   --color-floralwhite-rgb: 255, 250, 240;
   --color-ivory-rgb: 255, 255, 240;
   --color-antiquewhite-rgb: 250, 235, 215;
-  --color-linen-rgb: 250, 240, 230;
-  --color-lavenderblush-rgb: 255, 240, 245;
-  --color-mistyrose-rgb: 255, 228, 225;
-  --color-gainsboro-rgb: 220, 220, 220;
   --color-lightgray-rgb: 211, 211, 211;
   --color-silver-rgb: 192, 192, 192;
   --color-darkgray-rgb: 169, 169, 169;
@@ -549,7 +555,14 @@ body.theme-dark {
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {
   color: var(--heading-text-color);
   line-height: 1.2;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+  padding: 20px 0;
+  padding-inline-start: 25px !important;
+  font-style: italic;
+  background-color: var(--color-base-20);
 }
 
 /*** LISTS ***/
@@ -747,7 +760,7 @@ Tags Styles
 .cm-hmd-frontmatter,
 .frontmatter-section .frontmatter-section-label,
 .frontmatter-section .frontmatter-section-data-item {
-	font-size: var(--font-smallest);
+	font-size: var(--frontmatter-font-size);
 }
 
 .cm-hmd-frontmatter.cm-atom {color: var(--frontmatter-atom); font-weight: bold;}
@@ -953,8 +966,35 @@ Tags Styles
   color: var(--setting-item-description-color);
 }
 
-.vertical-tab-nav-item {cursor: pointer;}
+.vertical-tab-nav-item {cursor: pointer; font-size: var(--font-ui-small)}
 .modal.mod-settings .vertical-tab-header {border-right: none;}
+
+.modal {
+  padding: var(--size-4-8);
+}
+
+.modal-button-container {
+  justify-content: space-between;
+  padding-top: var(--size-4-6);
+  margin-top: var(--size-4-6);
+  border-top: 1px solid var(--default-border-color)
+}
+
+.modal-button-container button {cursor: pointer;}
+button.mod-warning {
+  color: #fff;
+  order: 3;
+  align-self: flex-end;
+  transition: all .15s linear;
+  box-shadow: 0 0 1px 0px rgba(233, 50,70, .4);
+}
+.modal-button-container button.mod-warning:hover {
+  background-color: #fff;
+  color: var(--background-modifier-error);
+  border-color: var(--background-modifier-error);
+  box-shadow: 0 0 5px 1px rgba(233, 50,70, .6);
+}
+
 
 /* ─────────────────────────────────────────────────── */
 /* TAB BAR HEADER                                      */
@@ -1643,9 +1683,6 @@ li[data-task='b'] > p > input:checked {
 .callout[data-callout-metadata*="cyan"] {background-color: rgba(var(--color-cyan-rgb), .15) !important}
 .callout[data-callout-metadata*="cyan"] .callout-title {color: rgb(var(--color-cyan-rgb));}
 
-.callout[data-callout-metadata*="lightcyan"] {background-color: rgba(var(--color-lightcyan-rgb), .15) !important}
-.callout[data-callout-metadata*="lightcyan"] .callout-title {color: rgb(var(--color-lightcyan-rgb));}
-
 .callout[data-callout-metadata*="paleturquoise"] {background-color: rgba(var(--color-paleturquoise-rgb), .15) !important}
 .callout[data-callout-metadata*="paleturquoise"] .callout-title {color: rgb(var(--color-paleturquoise-rgb));}
 
@@ -1676,17 +1713,8 @@ li[data-task='b'] > p > input:checked {
 .callout[data-callout-metadata*="lightblue"] {background-color: rgba(var(--color-lightblue-rgb), .15) !important}
 .callout[data-callout-metadata*="lightblue"] .callout-title {color: rgb(var(--color-lightblue-rgb));}
 
-.callout[data-callout-metadata*="skyblue"] {background-color: rgba(var(--color-skyblue-rgb), .15) !important}
-.callout[data-callout-metadata*="skyblue"] .callout-title {color: rgb(var(--color-skyblue-rgb));}
-
 .callout[data-callout-metadata*="lightskyblue"] {background-color: rgba(var(--color-lightskyblue-rgb), .15) !important}
 .callout[data-callout-metadata*="lightskyblue"] .callout-title {color: rgb(var(--color-lightskyblue-rgb));}
-
-.callout[data-callout-metadata*="deepskyblue"] {background-color: rgba(var(--color-deepskyblue-rgb), .15) !important}
-.callout[data-callout-metadata*="deepskyblue"] .callout-title {color: rgb(var(--color-deepskyblue-rgb));}
-
-.callout[data-callout-metadata*="dodgerblue"] {background-color: rgba(var(--color-dodgerblue-rgb), .15) !important}
-.callout[data-callout-metadata*="dodgerblue"] .callout-title {color: rgb(var(--color-dodgerblue-rgb));}
 
 .callout[data-callout-metadata*="cornflowerblue"] {background-color: rgba(var(--color-cornflowerblue-rgb), .15) !important}
 .callout[data-callout-metadata*="cornflowerblue"] .callout-title {color: rgb(var(--color-cornflowerblue-rgb));}
@@ -1712,20 +1740,11 @@ li[data-task='b'] > p > input:checked {
 .callout[data-callout-metadata*="midnightblue"] {background-color: rgba(var(--color-midnightblue-rgb), .15) !important}
 .callout[data-callout-metadata*="midnightblue"] .callout-title {color: rgb(var(--color-midnightblue-rgb));}
 
-.callout[data-callout-metadata*="cornsilk"] {background-color: rgba(var(--color-cornsilk-rgb), .15) !important}
-.callout[data-callout-metadata*="cornsilk"] .callout-title {color: rgb(var(--color-cornsilk-rgb));}
-
-.callout[data-callout-metadata*="blanchedalmond"] {background-color: rgba(var(--color-blanchedalmond-rgb), .15) !important}
-.callout[data-callout-metadata*="blanchedalmond"] .callout-title {color: rgb(var(--color-blanchedalmond-rgb));}
-
 .callout[data-callout-metadata*="bisque"] {background-color: rgba(var(--color-bisque-rgb), .15) !important}
 .callout[data-callout-metadata*="bisque"] .callout-title {color: rgb(var(--color-bisque-rgb));}
 
 .callout[data-callout-metadata*="navajowhite"] {background-color: rgba(var(--color-navajowhite-rgb), .15) !important}
 .callout[data-callout-metadata*="navajowhite"] .callout-title {color: rgb(var(--color-navajowhite-rgb));}
-
-.callout[data-callout-metadata*="wheat"] {background-color: rgba(var(--color-wheat-rgb), .15) !important}
-.callout[data-callout-metadata*="wheat"] .callout-title {color: rgb(var(--color-wheat-rgb));}
 
 .callout[data-callout-metadata*="burlywood"] {background-color: rgba(var(--color-burlywood-rgb), .15) !important}
 .callout[data-callout-metadata*="burlywood"] .callout-title {color: rgb(var(--color-burlywood-rgb));}
@@ -1764,13 +1783,11 @@ li[data-task='b'] > p > input:checked {
 .callout[data-callout-metadata*="maroon"] .callout-title {color: rgb(var(--color-maroon-rgb));}
 
 .callout[data-callout-metadata*="white"],
-.callout[data-callout-metadata*="snow"],
 .callout[data-callout-metadata*="ghostwhite"],
 .callout[data-callout-metadata*="whitesmoke"] {background-color: rgba(var(--color-white-rgb), .15) !important;  border: 1px solid rgba(var(--color-black-rgb), .20);}
 
 .callout[data-callout-metadata*="snow"] .callout-title,
 .callout[data-callout-metadata*="white"] .callout-title,
-.callout[data-callout-metadata*="snow"] .callout-title,
 .callout[data-callout-metadata*="ghostwhite"] .callout-title,
 .callout[data-callout-metadata*="whitesmoke"] .callout-title {color: rgb(var(--color-black-rgb));}
 
@@ -1803,18 +1820,6 @@ li[data-task='b'] > p > input:checked {
 
 .callout[data-callout-metadata*="antiquewhite"] {background-color: rgba(var(--color-antiquewhite-rgb), .9) !important}
 .callout[data-callout-metadata*="antiquewhite"] .callout-title {color: rgba(var(--color-black-rgb), .7);}
-
-.callout[data-callout-metadata*="linen"] {background-color: rgba(var(--color-linen-rgb), .15) !important}
-.callout[data-callout-metadata*="linen"] .callout-title {color: rgb(var(--color-linen-rgb));}
-
-.callout[data-callout-metadata*="lavenderblush"] {background-color: rgba(var(--color-lavenderblush-rgb), .15) !important}
-.callout[data-callout-metadata*="lavenderblush"] .callout-title {color: rgb(var(--color-lavenderblush-rgb));}
-
-.callout[data-callout-metadata*="mistyrose"] {background-color: rgba(var(--color-mistyrose-rgb), .15) !important}
-.callout[data-callout-metadata*="mistyrose"] .callout-title {color: rgb(var(--color-mistyrose-rgb));}
-
-.callout[data-callout-metadata*="gainsboro"] {background-color: rgba(var(--color-gainsboro-rgb), .15) !important}
-.callout[data-callout-metadata*="gainsboro"] .callout-title {color: rgb(var(--color-gainsboro-rgb));}
 
 .callout[data-callout-metadata*="lightgray"] {background-color: rgba(var(--color-lightgray-rgb), .15) !important}
 .callout[data-callout-metadata*="lightgray"] .callout-title {color: rgb(var(--color-lightgray-rgb));}
