@@ -34,6 +34,12 @@ settings:
         description: Hiden ribbon left bar icons
         type: class-toggle
     - 
+        id: eis-small-font
+        title: Small font
+        description: When enabled, the fonts are more smaller to be more minimalistic.
+        type: class-toggle
+        default: true
+    - 
         id: eis-showing-scrollbar
         title: Show scrollbars 
         description: When activated scrollbars will be visible
@@ -157,6 +163,21 @@ settings:
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
 
+body.eis-small-font {
+  --size-h1: 1.6rem !important;
+	--size-h2: 1.4rem !important;
+	--size-h3: 1.2rem !important;
+	--size-h4: 1rem !important;
+	--size-h5: .95rem !important;
+	--size-h6: .75rem !important;
+
+  --font-paragraph: .8rem;
+  --frontmatter-font-size: .6rem;
+
+  --width-body-content: 700px;
+
+}
+
 body {
 
   -webkit-font-smoothing: antialiased;
@@ -187,7 +208,7 @@ body {
 	--size-h5: 1.1rem;
 	--size-h6: .95rem;
 
-  --font-paragraph: 1 rem;
+  --font-paragraph: 1rem;
   --frontmatter-font-size: .65rem;
   --font-family-serif: Inter, Helvetica, Arial, sans-serif;
 
@@ -527,8 +548,20 @@ body.theme-dark {
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, 
 .cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {
   color: var(--heading-text-color);
+  line-height: 1.2;
+  padding-bottom: 15px;
 }
 
+/*** LISTS ***/
+
+.markdown-source-view.mod-cm6 .cm-content > .cm-line.HyperMD-list-line {
+  line-height: 1.4;
+  padding-bottom: 5px;
+}
+
+.markdown-source-view.mod-cm6 .cm-indent::before {
+  /* left: 13px */
+}
 
 /*** Banner ***/
 @media print {.markdown-reading-view .obsidian-banner-wrapper {display: none;}}
