@@ -534,19 +534,19 @@ body.theme-dark {
 }
 
 /*** Headings ***/
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1); line-height: 1.2;}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, .markdown-rendered h1 {font-size: var(--size-h1); line-height: 1.2;}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, .markdown-rendered h2 {font-size: var(--size-h2);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, .markdown-rendered h3 {font-size: var(--size-h3);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, .markdown-rendered h4 {font-size: var(--size-h4);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, .markdown-rendered h5 {font-size: var(--size-h5);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line, .markdown-rendered h6 {font-size: var(--size-h6);}
 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, .markdown-rendered h1,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, .markdown-rendered h2,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, .markdown-rendered h3,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, .markdown-rendered h4,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, .markdown-rendered h5,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line.markdown-rendered h6 {
   color: var(--heading-text-color);
   line-height: 1.2;
   padding-bottom: 15px;
@@ -628,7 +628,7 @@ Body text
 .external-link {background-position-y: 1px;}
 
 /* Lines of Text */
-.cm-contentContainer .cm-content .cm-line {
+.cm-contentContainer .cm-content .cm-line, .markdown-rendered {
   font-size: var(--font-paragraph); 
   font-family: var(--font-family-serif);
   line-height: 1.6;
