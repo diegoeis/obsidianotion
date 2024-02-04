@@ -4,7 +4,7 @@ Version 1.1
 Created by @diegoeis
 
 Readme:
-https://github.com/diegoeis/obisidianotion
+https://github.com/diegoeis/obsidianotion
 ────────────────────────────────────────────────────── */
 
 /* @settings
@@ -223,12 +223,12 @@ body {
   --font-smallest: 0.7rem;
   --tag-size: .75rem;
   
-	--size-h1: 2.30rem;
-	--size-h2: 1.95rem;
-	--size-h3: 1.5rem;
-	--size-h4: 1.4rem;
-	--size-h5: 1.1rem;
-	--size-h6: .95rem;
+  --size-h1: 2.30rem;
+  --size-h2: 1.95rem;
+  --size-h3: 1.5rem;
+  --size-h4: 1.4rem;
+  --size-h5: 1.1rem;
+  --size-h6: .95rem;
 
   --font-paragraph: 1rem;
   --frontmatter-font-size: .65rem;
@@ -402,6 +402,30 @@ body.eis-hide-ribbon {
 .cm-s-obsidian .HyperMD-codeblock {font-weight: bold;}
 
 
+
+/*****
+Preview Mode
+*****/
+
+.markdown-rendered div:has( > :is(p,pre,table,ul,ol)) + div > :is(h1) {
+    margin-bottom: calc(var(--heading-spacing) + -56px);
+    margin-top: calc(var(--heading-spacing) + -10px);
+}
+
+.markdown-rendered div:has( > :is(p,pre,table,ul,ol)) + div > :is(h2) {
+    margin-bottom: calc(var(--heading-spacing) + -12px);
+    margin-top: calc(var(--heading-spacing) + 5px);
+}
+
+/*.markdown-rendered div:has( > :is(p,pre,table,ul,ol)) + div > :is(h1,h2,h3,h4,h5,h6) {
+  margin: calc(var(--heading-spacing) + 8px) 0 calc(var(--heading-spacing) + -57px) !important;
+}*/
+
+.markdown-rendered p {margin-bottom: 28px}
+
+.markdown-rendered .metadata-properties-heading:before {font-size: 10px !important;}
+
+
 /*****
 Body Lists
 *****/
@@ -410,6 +434,18 @@ Body Lists
 }
 
 .cm-indent::before {border: 0 !important;}
+
+div > ul,
+div > ol {
+    margin-left: 33px;
+}
+
+div > ul ul,
+div > ol ol {
+    margin-left: 13px;
+}
+
+.markdown-rendered.show-indentation-guide li > ul::before, .markdown-rendered.show-indentation-guide li > ol::before {border: 0;}
 
 
 /*****
@@ -524,6 +560,10 @@ body.theme-dark {
 .theme-dark .callout[data-callout-metadata*="papayawhip"],
 .theme-dark .callout[data-callout-metadata*="white"] {color: #000;}
 
+.theme-dark .markdown-rendered p {
+    color: rgb(200, 200, 200);
+}
+
 /* ─────────────────────────────────────────────────── */
 /* VIEW CONTENT                                        */
 /* ─────────────────────────────────────────────────── */
@@ -569,19 +609,19 @@ body.theme-dark {
 }
 
 /*** Headings ***/
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line {font-size: var(--size-h1); line-height: 1.2;}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line {font-size: var(--size-h2);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line {font-size: var(--size-h3);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line {font-size: var(--size-h4);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line {font-size: var(--size-h5);}
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {font-size: var(--size-h6);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, .markdown-rendered h1 {font-size: var(--size-h1); line-height: 1.2;}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, .markdown-rendered h2 {font-size: var(--size-h2);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, .markdown-rendered h3 {font-size: var(--size-h3);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, .markdown-rendered h4 {font-size: var(--size-h4);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, .markdown-rendered h5 {font-size: var(--size-h5);}
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line, .markdown-rendered h6 {font-size: var(--size-h6);}
 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, 
-.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line {
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-1.cm-line, .markdown-rendered h1,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-2.cm-line, .markdown-rendered h2,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-3.cm-line, .markdown-rendered h3,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-4.cm-line, .markdown-rendered h4,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-5.cm-line, .markdown-rendered h5,
+.cm-contentContainer .cm-content .HyperMD-header.HyperMD-header-6.cm-line, .markdown-rendered h6 {
   color: var(--heading-text-color);
   line-height: 1.2;
   padding-bottom: 5px;
@@ -678,7 +718,7 @@ Body text
 .external-link {background-position-y: 1px;}
 
 /* Lines of Text */
-.cm-contentContainer .cm-content .cm-line {
+.cm-contentContainer .cm-content .cm-line, .markdown-rendered {
   font-size: var(--font-paragraph); 
   font-family: var(--font-family-serif);
   line-height: 1.6;
@@ -791,13 +831,13 @@ Tags Styles
 
 
 /* ─────────────────────────────────────────────────── */
-/* FRONTMATTER																	 */
+/* FRONTMATTER                                   */
 /* ─────────────────────────────────────────────────── */
 
 .cm-hmd-frontmatter,
 .frontmatter-section .frontmatter-section-label,
 .frontmatter-section .frontmatter-section-data-item {
-	font-size: var(--font-smallest);
+  font-size: var(--font-smallest);
 }
 
 .cm-hmd-frontmatter.cm-atom {color: var(--frontmatter-atom); font-weight: bold;}
@@ -808,7 +848,7 @@ Tags Styles
 
 
 /* ─────────────────────────────────────────────────── */
-/* SIDEBAR LEFT																	 */
+/* SIDEBAR LEFT                                  */
 /* ─────────────────────────────────────────────────── */
 
 .nav-buttons-container {
@@ -835,7 +875,7 @@ Tags Styles
 }
 
 .tree-item-self.is-clickable {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .nav-file-title.is-active.has-focus {
@@ -844,14 +884,14 @@ Tags Styles
 }
 
 .nav-file-title {
-	position: relative;
+  position: relative;
   align-items: center;
 }
 
 .clickable-icon {cursor: pointer; padding: var(--size-2-1);}
 
 .eis-with-icons .nav-file-title:before {
-	background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMCAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguMTc1MTMgMTEuMjQ5NEgyLjAyNTg2QzEuNzU0MDQgMTEuMjQ5NCAxLjQ5MzM2IDExLjE0MTQgMS4zMDExNiAxMC45NDkyQzEuMTA4OTUgMTAuNzU3IDEuMDAwOTggMTAuNDk2NCAxLjAwMDk4IDEwLjIyNDVWMi4wMjU1MkMxLjAwMDk4IDEuNzUzNyAxLjEwODk1IDEuNDkzMDIgMS4zMDExNiAxLjMwMDgyQzEuNDkzMzYgMS4xMDg2MSAxLjc1NDA0IDEuMDAwNjQgMi4wMjU4NiAxLjAwMDY0SDUuNjY0MThDNS44MDY2NCAwLjk5NTYxMiA1Ljk0ODU4IDEuMDIwMzYgNi4wODA5MyAxLjA3MzNDNi4yMTMyOCAxLjEyNjI0IDYuMzMzMTQgMS4yMDYyMSA2LjQzMjgzIDEuMzA4MUw4Ljk0Mzc5IDMuOTcyNzlDOS4xMTgyIDQuMTcwMTIgOS4yMDk5NSA0LjQyNzAyIDkuMjAwMDEgNC42OTAyVjEwLjIyNDVDOS4yMDAwMSAxMC40OTY0IDkuMDkyMDMgMTAuNzU3IDguODk5ODMgMTAuOTQ5MkM4LjcwNzYzIDExLjE0MTQgOC40NDY5NCAxMS4yNDk0IDguMTc1MTMgMTEuMjQ5NFoiIHN0cm9rZT0iIzVBNUE1QSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0zIDguOTQzNkg3LjIwMiIgc3Ryb2tlPSIjNUE1QTVBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTMgNi44OTM4SDcuMjAyIiBzdHJva2U9IiM1QTVBNUEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMy4wNTA3OCA0Ljg0Mzk5SDUuNjEyOTgiIHN0cm9rZT0iIzVBNUE1QSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMCAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguMTc1MTMgMTEuMjQ5NEgyLjAyNTg2QzEuNzU0MDQgMTEuMjQ5NCAxLjQ5MzM2IDExLjE0MTQgMS4zMDExNiAxMC45NDkyQzEuMTA4OTUgMTAuNzU3IDEuMDAwOTggMTAuNDk2NCAxLjAwMDk4IDEwLjIyNDVWMi4wMjU1MkMxLjAwMDk4IDEuNzUzNyAxLjEwODk1IDEuNDkzMDIgMS4zMDExNiAxLjMwMDgyQzEuNDkzMzYgMS4xMDg2MSAxLjc1NDA0IDEuMDAwNjQgMi4wMjU4NiAxLjAwMDY0SDUuNjY0MThDNS44MDY2NCAwLjk5NTYxMiA1Ljk0ODU4IDEuMDIwMzYgNi4wODA5MyAxLjA3MzNDNi4yMTMyOCAxLjEyNjI0IDYuMzMzMTQgMS4yMDYyMSA2LjQzMjgzIDEuMzA4MUw4Ljk0Mzc5IDMuOTcyNzlDOS4xMTgyIDQuMTcwMTIgOS4yMDk5NSA0LjQyNzAyIDkuMjAwMDEgNC42OTAyVjEwLjIyNDVDOS4yMDAwMSAxMC40OTY0IDkuMDkyMDMgMTAuNzU3IDguODk5ODMgMTAuOTQ5MkM4LjcwNzYzIDExLjE0MTQgOC40NDY5NCAxMS4yNDk0IDguMTc1MTMgMTEuMjQ5NFoiIHN0cm9rZT0iIzVBNUE1QSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0zIDguOTQzNkg3LjIwMiIgc3Ryb2tlPSIjNUE1QTVBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTMgNi44OTM4SDcuMjAyIiBzdHJva2U9IiM1QTVBNUEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMy4wNTA3OCA0Ljg0Mzk5SDUuNjEyOTgiIHN0cm9rZT0iIzVBNUE1QSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=");
 }
 .eis-with-icons .tree-item-self.mod-collapsible.nav-folder-title:before {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDEyIDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4zMTU2IDEuMDMxMjVINS4xNTkzNEw0LjEyODA5IDBIMC42OTA1OTRDMC4zMTA3NSAwIDAuMDAzMDkzNzUgMC4zMDggMC4wMDMwOTM3NSAwLjY4NzVWMi40MDYyNUgwVjMuMDkzNzVIMC4wMDMwOTM3NVY3LjkwNjI1QzAuMDAzMDkzNzUgOC4yODYwOSAwLjMxMDc1IDguNTkzNzUgMC42OTA1OTQgOC41OTM3NUgxMC4zMTU2QzEwLjY5NTQgOC41OTM3NSAxMS4wMDMxIDguMjg2MDkgMTEuMDAzMSA3LjkwNjI1VjEuNzE4NzVDMTEuMDAzMSAxLjMzOTI1IDEwLjY5NTQgMS4wMzEyNSAxMC4zMTU2IDEuMDMxMjVaTTAuNjkwNTk0IDAuNjg3NUgzLjgxMzkxTDQuNjU4NSAxLjUxNzMxTDQuODc0NzIgMS43MTg3NUgxMC4zMTU5VjIuNDA2MjVIMC42OTA5MzhMMC42OTA1OTQgMC42ODc1Wk0wLjY5MDU5NCA3LjkwNjI1VjMuMDkzNzVIMTAuMzE1NlY3LjkwNjI1SDAuNjkwNTk0WiIgZmlsbD0iIzVBNUE1QSIvPgo8L3N2Zz4K");
@@ -874,11 +914,11 @@ Tags Styles
   height: 12px;
   display: inline-block;
   vertical-align: middle;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	opacity: .6;
-	margin-right: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .6;
+  margin-right: 5px;
   /* margin-top: -1px; */
 
 }
