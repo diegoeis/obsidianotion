@@ -203,7 +203,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
   /*****
   GENERAL VARIABLES
   *****/
@@ -399,6 +398,8 @@ body {
 body.eis-hide-ribbon {
   --frame-left-space: 70px !important;
 }
+
+.cm-s-obsidian .HyperMD-codeblock {font-weight: bold;}
 
 
 /*****
