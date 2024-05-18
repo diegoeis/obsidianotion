@@ -433,7 +433,7 @@ Body Lists
   text-indent: 0;
 }
 
-.cm-indent::before {border: 0 !important;}
+.cm-indent::before {border: 1 !important;}
 
 div > ul,
 div > ol {
