@@ -187,6 +187,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  
   /*****
   GENERAL VARIABLES
   *****/
@@ -424,6 +425,12 @@ Preview Mode
 
 .markdown-rendered .metadata-properties-heading:before {font-size: 10px !important;}
 
+.metadata-container .metadata-add-button {cursor: pointer; transition: all .07s linear;}
+.show-properties .metadata-container {padding-bottom: 40px}
+
+.metadata-properties-heading {cursor: pointer;}
+.metadata-properties-heading.is-collapsed .metadata-properties-title,
+.collapse-indicator.collapse-icon.is-collapsed {opacity: 0.4;}
 
 /*****
 Body Lists
@@ -974,10 +981,14 @@ Tags Styles
 .workspace-ribbon.mod-left:before, 
 .is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right,
 .workspace-tab-header-container {
-  background-color: var(--tab-container-background2) !important;
+  /* background-color: var(--tab-container-background2) !important; */
 }
 
 /* .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {background-color: var(--color-base-15)} */
+
+.workspace-tabs {
+  box-shadow: 4px -2px 10px -4px rgba(0, 0, 0, 0.3);
+}
 
 .sidebar-toggle-button {padding-left: var(--size-4-3); opacity: .5;}
 .workspace-tab-header-inner {padding: 0 var(--size-4-1);}
@@ -1161,7 +1172,9 @@ body:not(.is-mobile) .mk-tree-wrapper .mk-drag-handle {cursor: grab;}
 .theme-dark .mk-tree-item.nav-folder-title.is-active.is-selected,
 .theme-dark .mk-tree-item.nav-file-title.is-active.is-selected {color: #fff;}
 
-
+.tree-item * {
+  font-size: .8rem;
+}
 
 /* ------------------- */
 /* Projects Plugin */
