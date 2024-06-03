@@ -192,7 +192,7 @@ body {
   *****/
   
   --width-body-content: 900px;
-
+  --list-indent: 0;
 
   /*** tags ***/
   --tag-radius: 5px;
@@ -432,7 +432,7 @@ Body Lists
   text-indent: 0;
 }
 
-.cm-indent::before {border: 0 !important;}
+.cm-indent::before {border:0 !important;}
 
 div > ul,
 div > ol {
