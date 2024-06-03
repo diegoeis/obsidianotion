@@ -34,7 +34,7 @@ Basic checklists:
 - [/] incomplete
 - [x] done
 - [-] canceled
-- [>] forwarded
+- [s] forwarded
 - [<] scheduling
 
 Extras checklists:
