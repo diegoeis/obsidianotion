@@ -1088,8 +1088,11 @@ Tags Styles
   border: 0px;
 }
 
+.workspace .mod-root .workspace-tab-header {order: 2;}
+
 .eis-small-pinned-tabs .workspace-tab-header:has(.mod-pinned) {
   max-width: 70px !important;
+  order: 1;
 }
 
 .eis-hide-ribbon .workspace-ribbon.mod-left {display: none;}
