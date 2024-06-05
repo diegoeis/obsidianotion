@@ -15,6 +15,7 @@ Do you have any suggestions or feedback, please, let me know: [https://forms.gle
 
 # About Obsidianotion
 
+
 Your Obsidian with a similar look and feel of Notion. But it's better because it's Obisidian!
 I know it can be challenging to migrate between tools, and the processn can greatly impact your productivity. That's why good design can help accelerate the learning curve by creating a familiar context of experience to help us focus on the only thing that matters: note-taking.
 
@@ -29,46 +30,40 @@ Obsidianotion supports a wide number of alternate checkbox types. These allow yo
 ![Checklists](https://i.imgur.com/vGk9jh5.png)
 
 ```
-Basic checklists:
-- [ ] to-do
-- [/] incomplete
-- [x] done
-- [-] canceled
-- [s] forwarded
-- [<] scheduling
+**Basic checklists:**
+- [ ] normal
+- [/] / - incomplete
+- [x] x - done
+- [-] -  canceled
+- [s] s - forwarded
+- [<] < - scheduling
 
-Extras checklists:
-- [?] question
-- [!] important
-- [*] star
-- ["] quote
-- [l] location
-- [b] bookmark
-- [i] information
-- [S] savings
-- [I] idea
-- [p] pros
-- [c] cons
-- [f] fire
-- [k] key
-- [w] win
-- [u] up
-- [d] down
+**Extras checklists:**
+- [?] ? - question
+- [!] ! - exclamation
+- [*] * - star
+- ["] " - quote
+- [l] l - location
+- [b] b - bookmark
+- [i] i - information
+- [S] S - savings
+- [I] I - idea
+- [p] p - thumbs up
+- [c] c - thumbs down
+- [f] f - fire
+- [k] k - key
+- [w] w - win
+- [u] u - up
+- [d] d - down
 ```
 
 _These are the same checkbox styles used in [Things](https://github.com/colineckert/obsidian-things) and [Minimal](https://minimal.guide/Block+types/Checklists#Checkbox+styling) themes. So, give it a try too._
 
-Beatifull typo and wonderfull reading:
+
+## Beatifull typo and wonderfull reading:
 
 ![](https://i.imgur.com/YxXyktF.png)
 
-## Colorful tags
-
-Tags inside notes beautiful multi-colored.
-
-![](https://i.imgur.com/OqiY5mK.png)
-
-![](https://i.imgur.com/Uz5E6w7.png)
 
 ## Small pinned tabs
 
@@ -76,7 +71,14 @@ If you use Style Settings plugin, do you have a option to get pinned tabs smalle
 
 ![](https://i.imgur.com/w96xdCu.gif)
 
+## Three types of fonts to choose
 
+
+Great readability for both reading and writing, designed for everyone who loves to write and take notes on their most important subjects.
+
+You can choose between *Inter*, *IBM Plex* and *iA Writer Quattro* fonts.
+
+![Three beauty fonts to write and read](https://i.imgur.com/3q3PrO8.jpg)
 
 
 ## To install
@@ -118,162 +120,23 @@ This theme works very good using [Make.md plugin](https://github.com/Make-md/mak
 
 
 ---
-## Callout wide color variation
 
-You can choose any known HTML color name to insert on your callouts. Just insert the plain name on the callout title separeted by | (vertical bar).
+## Callout variations
 
 ```
->[!info|fuchsia] Color name: fuchsia
-> This is the callout color fuchsia
+>[!note] A good Title
+> This is the content of callout
 ```
 
-![](https://i.imgur.com/HzNa8B4.png)
+Types of callouts:
 
-This is all colors enabled.
+- note
+- warning
+- error
+- success
+- question
 
-- indianred
-- lightcoral
-- salmon
-- darksalmon
-- lightsalmon
-- crimson
-- red
-- firebrick
-- darkred
-- pink
-- lightpink
-- hotpink
-- deeppink
-- mediumvioletred
-- palevioletred
-- lightsalmon
-- coral
-- tomato
-- orangered
-- darkorange
-- orange
-- gold
-- yellow
-- lightyellow
-- lemonchiffon
-- lightgoldenrodyellow
-- papayawhip
-- moccasin
-- peachpuff
-- palegoldenrod
-- khaki
-- darkkhaki
-- lavender
-- thistle
-- plum
-- violet
-- orchid
-- fuchsia
-- magenta
-- mediumorchid
-- mediumpurple
-- rebeccapurple
-- blueviolet
-- darkviolet
-- darkorchid
-- darkmagenta
-- purple
-- indigo
-- slateblue
-- darkslateblue
-- mediumslateblue
-- greenyellow
-- chartreuse
-- lawngreen
-- lime
-- limegreen
-- palegreen
-- lightgreen
-- mediumspringgreen
-- springgreen
-- mediumseagreen
-- seagreen
-- forestgreen
-- green
-- darkgreen
-- yellowgreen
-- olivedrab
-- olive
-- darkolivegreen
-- mediumaquamarine
-- darkseagreen
-- lightseagreen
-- darkcyan
-- teal
-- aqua
-- cyan
-- lightcyan
-- paleturquoise
-- aquamarine
-- turquoise
-- mediumturquoise
-- darkturquoise
-- cadetblue
-- steelblue
-- lightsteelblue
-- powderblue
-- lightblue
-- skyblue
-- lightskyblue
-- deepskyblue
-- dodgerblue
-- cornflowerblue
-- mediumslateblue
-- royalblue
-- blue
-- mediumblue
-- darkblue
-- navy
-- midnightblue
-- cornsilk
-- blanchedalmond
-- bisque
-- navajowhite
-- wheat
-- burlywood
-- tan
-- rosybrown
-- sandybrown
-- goldenrod
-- darkgoldenrod
-- peru
-- chocolate
-- saddlebrown
-- sienna
-- brown
-- maroon
-- white
-- snow
-- honeydew
-- mintcream
-- azure
-- aliceblue
-- ghostwhite
-- whitesmoke
-- seashell
-- beige
-- oldlace
-- floralwhite
-- ivory
-- antiquewhite
-- linen
-- lavenderblush
-- mistyrose
-- gainsboro
-- lightgray
-- silver
-- darkgray
-- gray
-- dimgray
-- lightslategray
-- slategray
-- darkslategray
-- black
+![callouts](https://i.imgur.com/yT2BKqC.png)
 
 
 ## My graph view:
@@ -284,4 +147,3 @@ This is all colors enabled.
 
 ![dark settings modal](https://i.imgur.com/j8sJKqT.png)
 ![light settings modal](https://i.imgur.com/XMIdM57.png)
-
