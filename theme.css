@@ -235,7 +235,7 @@ body {
   *****/
   
   --width-body-content: 800px;
-  --list-indent: 0;
+  --list-indent: .8rem;
   --link-unresolved-opacity: 0.85;
 
   /*** tags ***/
@@ -364,19 +364,9 @@ Body Lists
   text-indent: 0;
 }
 
-.cm-indent::before {border:0 !important;}
-
-div > ul,
-div > ol {
-    margin-left: 33px;
-}
-
-div > ul ul,
-div > ol ol {
-    margin-left: 13px;
-}
-
 .markdown-rendered.show-indentation-guide li > ul::before, .markdown-rendered.show-indentation-guide li > ol::before {border: 0;}
+
+.cm-indent::before {border:0 !important;}
 
 
 /*****
