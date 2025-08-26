@@ -415,6 +415,8 @@ body.theme-light {
   --setting-item-name-color: #373530;
 
   /*** tags ***/
+  --tag-background: rgba(0, 0, 0, .1);
+
   --tag-1-bgcolor: rgb(255, 214, 170);
   --tag-2-bgcolor: rgb(202, 255, 196);
   --tag-3-bgcolor: rgb(255, 173, 174);
@@ -467,7 +469,8 @@ body.theme-dark {
   --color-whitesmoke-rgb: 245, 245, 245;
 
   /*** tags ***/
-  --tag-background: rgba(255, 255, 255, .1) !important;
+  /* --tag-background: rgba(255, 255, 255, 1) !important; */
+  --tag-background: cornsilk;
   --pill-background: var(--tag-background) !important;
 
   --tag-1-bgcolor: rgba(255, 214, 170, .75);
@@ -506,8 +509,6 @@ body.theme-dark {
 .theme-dark .multi-select-pill-remove-button {
   color: rgb(255, 255, 255);
 }
-
-
 
 
 /***
@@ -618,7 +619,7 @@ Tags Styles
   padding-left: 0;
   padding-right: var(--tag-padding-x) !important;
 }
-
+/* 
 .cm-hashtag:nth-of-type(2n + 1),
 .cm-hashtag:nth-of-type(2n + 1) + .cm-hashtag,
 .mk-tag-selector div:nth-child(1) .cm-hashtag {
@@ -626,9 +627,7 @@ Tags Styles
 }
 
 
-
-
-.cm-hashtag:nth-of-type(2n + 3),
+ .cm-hashtag:nth-of-type(2n + 3),
 .cm-hashtag:nth-of-type(2n + 3) + .cm-hashtag,
 .mk-tag-selector div:nth-child(2) .cm-hashtag {
   background-color: var(--tag-2-bgcolor);
@@ -680,7 +679,10 @@ Tags Styles
 .cm-hashtag:nth-of-type(2n + 19) + .cm-hashtag,
 .mk-tag-selector div:nth-child(10) .cm-hashtag {
   background-color: var(--tag-10-bgcolor);
-}
+}  */
+
+
+
 /* ─────────────────────────────────────────────────── */
 /* VIEW CONTENT                                        */
 /* ─────────────────────────────────────────────────── */
@@ -841,10 +843,6 @@ Tags Styles
   cursor: pointer;
 }
 
-.nav-file-title.is-active.has-focus {
-  outline: 1px solid red;
-  background-color: var(--acc);
-}
 
 .nav-file-title {
   position: relative;
