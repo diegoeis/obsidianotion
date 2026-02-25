@@ -1172,7 +1172,9 @@ li.task-list-item.plugin-tasks-list-item > ul,
 li.task-list-item.plugin-tasks-list-item > ol {
   flex: 0 0 100%;
   width: 100%;
-  margin-top: 0.25rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
 }
 
 li.task-list-item.plugin-tasks-list-item .task-extras {
@@ -1648,4 +1650,3 @@ body.enable-alternative-checkboxes li[data-task='b'] > p > input:checked {
 .priority-container .priority-4 {
   color: #b4c2f0;
 }
-
