@@ -1154,7 +1154,12 @@ h5.tasks-group-heading {
   padding-top: 5px;
 }
 
-.task-list-item-checkbox {vertical-align: middle; position: relative; top: 2px !important;}
+.task-list-item-checkbox {
+  vertical-align: middle;
+  position: relative;
+  top: 2px !important;
+}
+
 li.task-list-item.plugin-tasks-list-item {
   /* margin-bottom: 15px; */
   line-height: 1.5;
@@ -1163,12 +1168,17 @@ li.task-list-item.plugin-tasks-list-item {
   vertical-align: middle;
 }
 
-li.task-list-item.plugin-tasks-list-item .task-extras {
-  vertical-align: middle;
-  padding-left: 5px
+li.task-list-item.plugin-tasks-list-item > ul,
+li.task-list-item.plugin-tasks-list-item > ol {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-top: 0.25rem;
 }
 
-
+li.task-list-item.plugin-tasks-list-item .task-extras {
+  vertical-align: middle;
+  padding-left: 5px;
+}
 
 ul.plugin-tasks-query-result,
 ol.plugin-tasks-query-result {
