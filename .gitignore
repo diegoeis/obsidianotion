@@ -15,3 +15,7 @@ node_modules
 .DS_Store
 
 theme-bkp.css
+
+# Claude Code local config and notes
+.claude/
+CLAUDE.md
