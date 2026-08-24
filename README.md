@@ -91,6 +91,11 @@ Obsidianotion supports a wide number of alternate checkbox types, always on:
 
 Credit: [Minimal theme](https://minimal.guide/Block+types/Checklists#Checkbox+styling).
 
+## Credits
+
+- Checklist glyphs adapted from the [Minimal theme](https://minimal.guide/Block+types/Checklists#Checkbox+styling).
+- Sidebar file-type icons (folder / note / base) from [Lucide](https://lucide.dev) — ISC/MIT licensed, the same icon set Obsidian's own UI is built on.
+
 ## Customizing
 
 The theme is built entirely on Obsidian's standard CSS variables, so you can override any of it with a CSS snippet — no Style Settings plugin required. The most useful variables to tweak:

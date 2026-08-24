@@ -8,8 +8,13 @@ Author: Diego Eis
 Scope: colors, typography, content formatting (headings,
 paragraphs, properties/frontmatter), sidebar structure,
 borders and spacing. Deliberately does NOT reproduce
-Notion-specific widgets (colored tags, emoji covers, page
-icons, kanban/table chrome, etc.) — see README.
+Notion-specific widgets (colored/emoji page icons set per
+note, page covers, kanban/table chrome, etc.) — see README.
+The one exception is the file-type icon in the sidebar
+(folder/note/base) — that's app chrome, not per-note content.
+
+Sidebar file-type icons are from Lucide (https://lucide.dev,
+ISC/MIT license) — the same icon set Obsidian's own UI uses.
 
 Readme:
 https://github.com/diegoeis/obsidianotion
@@ -19,12 +24,16 @@ https://github.com/diegoeis/obsidianotion
    1. FOUNDATIONS — shared across light & dark
    ====================================================== */
 
+* {
+  scrollbar-color: #D3D1CB rgba(0, 0, 0, 0);
+}
+
 .theme-light,
 .theme-dark {
   /* Typography — Notion ships a tuned Inter ("NotionInter").
      We fall back to the open Inter family + system stack. */
-  --font-text-theme: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-interface-theme: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-text-theme: ui-sans-serif, -apple-system, "system-ui", "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif;
+  --font-interface-theme: ui-sans-serif, -apple-system, "system-ui", "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif;
   --font-monospace-theme: "SF Mono", "Cascadia Code", Consolas, monospace;
 
   --font-text-size: 16px;
@@ -78,6 +87,7 @@ https://github.com/diegoeis/obsidianotion
 
   --input-radius: var(--radius-s);
   --button-radius: var(--radius-m);
+  --checkbox-radius: var(--radius-s);
 }
 
 /* ======================================================
@@ -222,9 +232,9 @@ https://github.com/diegoeis/obsidianotion
    H1 inside the body (not larger). */
 .inline-title {
   font-weight: 700;
-  font-size: 1.875em;
+  font-size: 40px;
+  line-height: 48px;
   letter-spacing: -0.02em;
-  line-height: 1.3;
   color: var(--text-normal);
 }
 
@@ -322,6 +332,7 @@ hr {
   color: var(--text-faint);
   font-size: 14px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .metadata-add-button:hover {
@@ -387,19 +398,35 @@ hr {
   padding-top: var(--size-2-1);
 }
 
+/* Scrollbar — sidebars only (file explorer + settings modal nav),
+   not the main editor scrollbar. */
+.nav-files-container::-webkit-scrollbar-thumb,
+.vertical-tab-header::-webkit-scrollbar-thumb {
+  background-color: #D3D1CB;
+}
+
+.tree-item.nav-folder,
+.tree-item.nav-file,
+.nav-folder-title,
+.nav-file-title,
+.tree-item-self.is-clickable {
+  cursor: pointer;
+}
+
 .nav-folder-title,
 .nav-file-title {
-  --nav-item-color: var(--text-muted);
+  --nav-item-color: #5F5E59;
   --nav-item-color-hover: var(--text-normal);
   --nav-item-color-selected: var(--text-normal);
-  --nav-item-background-hover: var(--background-modifier-hover);
+  --nav-item-background-hover: #EEEDEC;
   --nav-item-background-active: var(--background-modifier-active-hover);
-  --nav-item-background-selected: var(--background-modifier-hover);
+  --nav-item-background-selected: #EEEDEC;
   --nav-item-weight: var(--font-normal);
   --nav-item-weight-hover: var(--font-normal);
   --nav-item-weight-active: var(--font-normal);
   border-radius: var(--radius-s);
   padding: var(--size-2-2) var(--size-4-2);
+  cursor: pointer;
 }
 
 .nav-folder-title.is-active {
@@ -412,9 +439,88 @@ hr {
   font-size: var(--font-ui-small);
 }
 
-/* File explorer folder chevrons — quiet, low-contrast */
-.nav-folder-collapse-indicator {
-  color: var(--text-faint);
+/* File explorer folder chevrons — Notion-style: hidden by default,
+   swapped in for the folder icon on hover (instead of sitting next
+   to it). display:none/content:none both remove the element from
+   flow entirely, so neither leaves a gap — the icon and the chevron
+   trade places in the same slot rather than the row shifting. */
+/* The real chevron element is .tree-item-icon.collapse-icon (an
+   <svg class="svg-icon right-triangle"> inside it) — the older
+   .nav-folder-collapse-indicator class doesn't exist in current
+   Obsidian, confirmed via DevTools. Obsidian's own core CSS already
+   reads --icon-opacity on this element (app.css: ".tree-item-self
+   .tree-item-icon { opacity: var(--icon-opacity); }"), so we feed
+   that variable instead of fighting it with display/visibility. */
+.nav-folder-title .tree-item-icon.collapse-icon {
+  --icon-opacity: 0;
+}
+
+.nav-folder-title:hover .tree-item-icon.collapse-icon {
+  --icon-opacity: 1;
+}
+
+.nav-folder-title:hover .nav-folder-title-content::before {
+  content: none;
+}
+
+/* File-type icons — Notion shows a distinct glyph per item type
+   (a "page with lines" for pages that contain sub-pages, a plain
+   blank page for a simple page, a table grid for a database). We
+   mirror that with icons from Lucide (lucide.dev, ISC/MIT license
+   — the same icon set Obsidian's own UI is built on):
+   - folders           → "folder"
+   - markdown notes     → "file" (a plain, blank page)
+   - Bases (.base)      → "table"
+   nth-of-type/extension selectors are pure CSS — there's no JS
+   here, so anything Obsidian doesn't expose as data-path (e.g. a
+   plugin-defined file type) just falls back to the "file" icon. */
+.nav-folder-title-content,
+.nav-file-title-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-folder-title-content::before,
+.nav-file-title-content::before {
+  content: "";
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #8E8B86;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+.nav-folder-title:hover .nav-folder-title-content::before,
+.nav-file-title:hover .nav-file-title-content::before {
+  background-color: var(--nav-item-color-hover);
+}
+
+.nav-folder-title.is-active .nav-folder-title-content::before,
+.nav-file-title.is-active .nav-file-title-content::before,
+.nav-file-title.is-selected .nav-file-title-content::before {
+  background-color: var(--nav-item-color-selected);
+}
+
+/* Folder — Lucide "folder" */
+.nav-folder-title-content::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/%3E%3C/svg%3E");
+}
+
+/* Markdown note (default) — Lucide "file" */
+.nav-file-title-content::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3C/svg%3E");
+}
+
+/* Bases (.base) — Lucide "table". Obsidian sets data-path (full
+   vault-relative path, extension included) on the file row; we
+   match it on both the title and the row itself in case the
+   attribute lives on a different element across versions. */
+.nav-file-title[data-path$='.base'] .nav-file-title-content::before,
+.nav-file[data-path$='.base'] .nav-file-title-content::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18'/%3E%3Crect width='18' height='18' x='3' y='3' rx='2'/%3E%3Cpath d='M3 9h18'/%3E%3Cpath d='M3 15h18'/%3E%3C/svg%3E");
 }
 
 /* Section headings inside the sidebar (Files, Tags, etc.) */
@@ -431,7 +537,7 @@ hr {
 
 .side-dock-actions .side-dock-ribbon-action,
 .workspace-ribbon .clickable-icon {
-  color: var(--text-muted);
+  color: #8E8B86;
 }
 
 /* ======================================================
@@ -443,6 +549,7 @@ hr {
   --tab-background-active: var(--background-primary);
   --tab-text-color-focused-active: var(--text-normal);
   --tab-font-weight: var(--font-normal);
+  cursor: pointer;
 }
 
 .workspace-tab-header-container {
@@ -454,49 +561,57 @@ hr {
    8. BUTTONS & INPUTS
    ====================================================== */
 
-button:not(.clickable-icon),
-.button-default {
-  background-color: var(--interactive-normal);
+/* Obsidian doesn't set a pointer cursor on buttons by default (the
+   Chromium UA stylesheet leaves it as the plain arrow) — applies to
+   every button variant, since it's cosmetic and never conflicts with
+   a color/shape variable. */
+button,
+.clickable-icon {
+  cursor: pointer;
+}
+
+/* Still no generic background/radius/font-weight reset — those come
+   from --interactive-normal/--button-radius via Obsidian's own core
+   CSS. What Obsidian does NOT give a default button is a visible
+   border (it renders as flat, borderless text otherwise), so that's
+   the one thing worth adding: a plain hairline, Notion-style. Scoped
+   away from .mod-cta and .mod-destructive so it never touches their
+   own colors. */
+button:not(.clickable-icon):not(.mod-cta):not(.mod-destructive) {
   border: var(--border-width) solid var(--background-modifier-border);
-  border-radius: var(--button-radius);
-  font-weight: var(--font-medium);
-  box-shadow: none;
 }
 
-button:not(.clickable-icon):hover {
-  background-color: var(--interactive-hover);
+/* .mod-destructive (Uninstall, Delete, Bulk restore's confirm, etc.)
+   isn't tied to any Obsidian color variable by default — solid red
+   fill + white text, using the same --text-error red as everywhere
+   else errors show up in this theme. */
+/* Same story as .dropdown below: a button carrying BOTH
+   .mod-destructive and .mod-cta (e.g. a plugin's "Remove" button)
+   matches Obsidian's own "button.mod-destructive.mod-cta" rule,
+   two classes = more specific than our one-class selector, so it
+   was winning back to --background-modifier-error (a pale pink
+   tint) instead of our solid red. !important forces ours through
+   regardless of which class combination shows up. */
+button.mod-destructive {
+  background-color: var(--text-error) !important;
+  color: var(--text-on-accent) !important;
+  border: none !important;
 }
 
-.mod-cta {
-  background-color: var(--interactive-accent);
-  color: var(--text-on-accent);
-  border: none;
+button.mod-destructive:hover {
+  opacity: 0.9;
 }
 
-.mod-cta:hover {
-  background-color: var(--interactive-accent-hover);
-}
+/* .mod-cta (Install, primary actions) is deliberately left untouched
+   — it already follows whatever accent color the user picked in
+   Appearance settings via Obsidian's own core CSS. */
 
-input[type="text"],
-input[type="search"],
-input[type="number"],
-textarea,
-.search-input-container input {
-  background-color: var(--background-modifier-form-field);
-  border: var(--border-width) solid var(--background-modifier-border);
-  border-radius: var(--input-radius);
-}
-
-input[type="text"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-  border-color: var(--background-modifier-border-focus);
-  box-shadow: 0 0 0 1px var(--background-modifier-border-focus);
-}
-
-input[type="checkbox"] {
-  border-radius: var(--radius-s);
-}
+/* Same reasoning as buttons above: no generic input/checkbox rules
+   here. --input-radius, --background-modifier-form-field,
+   --background-modifier-border and --background-modifier-border-focus
+   are all variables Obsidian's own core CSS already applies to text
+   inputs — and --checkbox-radius (set in Foundations) is what its
+   checkbox CSS already reads for radius. Nothing left to restate. */
 
 /* ======================================================
    9. SURFACES — modals, popovers, cards get the
@@ -572,6 +687,17 @@ input[type="checkbox"] {
   --tag-cycle-6-text: #4ade80;
   --tag-cycle-7-bg: rgba(82, 52, 16, 0.28);
   --tag-cycle-7-text: #cf9d6c;
+}
+
+/* Tags — Obsidian's default is a full pill; Notion's are a tighter
+   4px radius, matching the theme's --radius-s scale. Covers inline
+   #tags (both the single-element reading-view form and the
+   begin/end split Live Preview uses) and the tags-property pills. */
+a.tag,
+.cm-hashtag-begin,
+.cm-hashtag-end,
+.multi-select-pill {
+  border-radius: var(--radius-s);
 }
 
 /* Inline #tags rendered in note content.
@@ -986,3 +1112,122 @@ li[data-task='b'] > p > input:checked {
 .titlebar {
   background-color: var(--background-secondary);
 }
+
+/* ======================================================
+   13. SETTINGS MODAL
+   ====================================================== */
+
+/* The setting-item/vertical-tab-* class names below are stable,
+   long-standing Obsidian app chrome (used by virtually every
+   published theme), but — unlike buttons/inputs/checkboxes — they
+   aren't part of the documented CSS variables reference, so there's
+   no variable to defer to here. This is custom layout, not a
+   restated default. */
+
+/* Breathing room per row, Notion-style, instead of a dense list. */
+.setting-item {
+  padding: var(--size-4-4) 0;
+  border-top: none;
+}
+
+/* The info block (name + description, first child) needs to keep a
+   minimum distance from the control (dropdown/toggle/button) on the
+   right — otherwise a long description can crowd right up against it. */
+.setting-item > *:first-child {
+  margin-inline-end: 50px;
+}
+
+/* Notion draws its divider BELOW each group's heading, not above —
+   so every heading (including the first) gets an underline, and
+   plain rows underneath stay divider-free. */
+.setting-item-heading {
+  font-size: 16px;
+  border-bottom: 1px solid rgba(42, 28, 0, 0.07);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.setting-item-heading .setting-item-name {
+  font-size: 16px;
+}
+
+.setting-item-name {
+  font-weight: 700;
+  color: rgb(44, 44, 43);
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+.setting-item-description {
+  color: rgb(125, 122, 117);
+  font-size: 13px;
+}
+
+/* Settings modal sidebar — same warm background as the main app
+   sidebar, no border (Notion's preferences sidebar doesn't draw one
+   either). --modal-sidebar-background is real but undocumented in
+   the public CSS variables reference (Obsidian ships 400+ variables,
+   not all of them cataloged) — feed the variable Obsidian's own core
+   CSS already reads instead of hardcoding background-color here.
+   The group/item classes further below still have no variable to
+   defer to, so those stay genuinely custom. */
+.vertical-tab-header {
+  --modal-sidebar-background: #F9F8F7;
+}
+
+/* Sidebar nav — same hover/active/cursor treatment as the file
+   explorer sidebar, for one consistent feel across both. */
+.vertical-tab-nav-item {
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  color: #5F5E59;
+}
+
+.vertical-tab-nav-item:hover {
+  background-color: #EEEDEC;
+}
+
+.vertical-tab-nav-item.is-active {
+  background-color: #EEEDEC;
+  color: var(--text-normal);
+  font-weight: var(--font-medium);
+}
+
+/* Native icon Obsidian renders inside each nav item — Lucide icons
+   set stroke="currentColor", so painting `color` on the <svg> itself
+   re-tints it independently of the item's own text color above. */
+.vertical-tab-nav-item svg {
+  color: #8E8B86;
+}
+
+/* Group labels ("core plugins", "community plugins") — Notion sets
+   these as small muted eyebrows, lowercase, clearly distinct from
+   the clickable items below them. */
+.vertical-tab-header-group-title {
+  color: #A19E99;
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-semibold);
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+/* Dropdown/select controls — Obsidian ships these borderless by
+   default; Notion always gives them a visible outline + hover fill. */
+/* Obsidian's real class is .dropdown (a <select class="dropdown">),
+   and its own core CSS sets border: none on it with a selector at
+   least as specific as a bare "select" — !important to guarantee
+   this wins, same lesson as the button/checkbox specificity fights
+   earlier in this file. */
+select,
+.dropdown {
+  border: 1px solid rgba(28, 19, 1, 0.11) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+}
+
+select:hover,
+.dropdown:hover {
+  background-color: #F4F3F3 !important;
+}
+
