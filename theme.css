@@ -439,30 +439,6 @@ hr {
   font-size: var(--font-ui-small);
 }
 
-/* File explorer folder chevrons — Notion-style: hidden by default,
-   swapped in for the folder icon on hover (instead of sitting next
-   to it). display:none/content:none both remove the element from
-   flow entirely, so neither leaves a gap — the icon and the chevron
-   trade places in the same slot rather than the row shifting. */
-/* The real chevron element is .tree-item-icon.collapse-icon (an
-   <svg class="svg-icon right-triangle"> inside it) — the older
-   .nav-folder-collapse-indicator class doesn't exist in current
-   Obsidian, confirmed via DevTools. Obsidian's own core CSS already
-   reads --icon-opacity on this element (app.css: ".tree-item-self
-   .tree-item-icon { opacity: var(--icon-opacity); }"), so we feed
-   that variable instead of fighting it with display/visibility. */
-.nav-folder-title .tree-item-icon.collapse-icon {
-  --icon-opacity: 0;
-}
-
-.nav-folder-title:hover .tree-item-icon.collapse-icon {
-  --icon-opacity: 1;
-}
-
-.nav-folder-title:hover .nav-folder-title-content::before {
-  content: none;
-}
-
 /* File-type icons — Notion shows a distinct glyph per item type
    (a "page with lines" for pages that contain sub-pages, a plain
    blank page for a simple page, a table grid for a database). We
@@ -1124,31 +1100,11 @@ li[data-task='b'] > p > input:checked {
    no variable to defer to here. This is custom layout, not a
    restated default. */
 
-/* Breathing room per row, Notion-style, instead of a dense list. */
-.setting-item {
-  padding: var(--size-4-4) 0;
-  border-top: none;
-}
-
 /* The info block (name + description, first child) needs to keep a
    minimum distance from the control (dropdown/toggle/button) on the
    right — otherwise a long description can crowd right up against it. */
 .setting-item > *:first-child {
   margin-inline-end: 50px;
-}
-
-/* Notion draws its divider BELOW each group's heading, not above —
-   so every heading (including the first) gets an underline, and
-   plain rows underneath stay divider-free. */
-.setting-item-heading {
-  font-size: 16px;
-  border-bottom: 1px solid rgba(42, 28, 0, 0.07);
-  padding-bottom: 12px;
-  margin-bottom: 16px;
-}
-
-.setting-item-heading .setting-item-name {
-  font-size: 16px;
 }
 
 .setting-item-name {
@@ -1174,6 +1130,12 @@ li[data-task='b'] > p > input:checked {
    defer to, so those stay genuinely custom. */
 .vertical-tab-header {
   --modal-sidebar-background: #F9F8F7;
+}
+
+/* Same idea for the settings content pane itself — another
+   undocumented-but-real variable. */
+.modal.mod-settings {
+  --setting-items-background: #fbfbfb;
 }
 
 /* Sidebar nav — same hover/active/cursor treatment as the file
