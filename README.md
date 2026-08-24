@@ -1,7 +1,7 @@
 ---
 created: 2026-08-22
 ---
-# README
+# Obsidianotion
 
 ![](https://i.imgur.com/JBo9AZ6.png)
 

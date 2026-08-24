@@ -339,12 +339,12 @@ hr {
   color: var(--text-muted);
 }
 
-/* Our generic text-input styling (section 8) boxes every <input>,
-   but property key/value fields should read as plain inline text,
-   not form fields — Notion never boxes a property name or value.
+/* Property key/value fields should read as plain inline text, not
+   form fields — Notion never boxes a property name or value, but
+   Obsidian's own default property styling draws a border on these.
    The key/value fields are contenteditable divs, not <input>s, so
-   every variant is listed explicitly and forced with !important —
-   Obsidian's own default property styling also draws this border. */
+   every variant is listed explicitly and forced with !important to
+   beat that default. */
 .metadata-property-key,
 .metadata-property-key-input,
 .metadata-property-value,
@@ -676,58 +676,64 @@ a.tag,
   border-radius: var(--radius-s);
 }
 
-/* Inline #tags rendered in note content.
+/* Inline #tags rendered in note content. Feeds --tag-background/
+   --tag-color — the documented variables Obsidian's own .tag/
+   .cm-hashtag CSS already reads — rather than forcing background-
+   color/color directly, so no !important is needed here.
    Reading view renders a tag as one <a class="tag"> element, but
    Live Preview splits it into TWO sibling spans — cm-hashtag-begin
    (the "#") and cm-hashtag-end (the label) — so counting every
    .cm-hashtag with nth-of-type let the # and the label land in
    different buckets of the cycle (two-tone tags). Fixed by keying
    the cycle off cm-hashtag-end only, then using :has() to make the
-   preceding "#" match whichever bucket its label landed in.
+   preceding "#" match whichever bucket its label landed in — the
+   one spot in this file where :has() is worth its selector-
+   invalidation cost, since there's no other way in pure CSS to
+   style an element based on a condition on its next sibling.
    nth-of-type still counts every sibling <a>/<span> of that type
    regardless of class, so the cycle can skip a beat next to a
    regular link — an accepted limit of doing this without JS. */
 a.tag:nth-of-type(7n + 1),
 .cm-hashtag-end:nth-of-type(7n + 1),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 1)) {
-  background-color: var(--tag-cycle-1-bg) !important;
-  color: var(--tag-cycle-1-text) !important;
+  --tag-background: var(--tag-cycle-1-bg);
+  --tag-color: var(--tag-cycle-1-text);
 }
 a.tag:nth-of-type(7n + 2),
 .cm-hashtag-end:nth-of-type(7n + 2),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 2)) {
-  background-color: var(--tag-cycle-2-bg) !important;
-  color: var(--tag-cycle-2-text) !important;
+  --tag-background: var(--tag-cycle-2-bg);
+  --tag-color: var(--tag-cycle-2-text);
 }
 a.tag:nth-of-type(7n + 3),
 .cm-hashtag-end:nth-of-type(7n + 3),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 3)) {
-  background-color: var(--tag-cycle-3-bg) !important;
-  color: var(--tag-cycle-3-text) !important;
+  --tag-background: var(--tag-cycle-3-bg);
+  --tag-color: var(--tag-cycle-3-text);
 }
 a.tag:nth-of-type(7n + 4),
 .cm-hashtag-end:nth-of-type(7n + 4),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 4)) {
-  background-color: var(--tag-cycle-4-bg) !important;
-  color: var(--tag-cycle-4-text) !important;
+  --tag-background: var(--tag-cycle-4-bg);
+  --tag-color: var(--tag-cycle-4-text);
 }
 a.tag:nth-of-type(7n + 5),
 .cm-hashtag-end:nth-of-type(7n + 5),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 5)) {
-  background-color: var(--tag-cycle-5-bg) !important;
-  color: var(--tag-cycle-5-text) !important;
+  --tag-background: var(--tag-cycle-5-bg);
+  --tag-color: var(--tag-cycle-5-text);
 }
 a.tag:nth-of-type(7n + 6),
 .cm-hashtag-end:nth-of-type(7n + 6),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 6)) {
-  background-color: var(--tag-cycle-6-bg) !important;
-  color: var(--tag-cycle-6-text) !important;
+  --tag-background: var(--tag-cycle-6-bg);
+  --tag-color: var(--tag-cycle-6-text);
 }
 a.tag:nth-of-type(7n + 7),
 .cm-hashtag-end:nth-of-type(7n + 7),
 .cm-hashtag-begin:has(+ .cm-hashtag-end:nth-of-type(7n + 7)) {
-  background-color: var(--tag-cycle-7-bg) !important;
-  color: var(--tag-cycle-7-text) !important;
+  --tag-background: var(--tag-cycle-7-bg);
+  --tag-color: var(--tag-cycle-7-text);
 }
 
 /* The begin/end split also puts a hard corner where the two spans
@@ -809,7 +815,7 @@ a.tag:nth-of-type(7n + 7),
   --checkbox-size: 18px;
   vertical-align: middle;
   position: relative;
-  top: 2px !important;
+  top: 2px;
 }
 
 input[data-task='s']:checked:before,
@@ -899,7 +905,6 @@ input[data-task='<']:checked,
 li[data-task='<'] > input:checked,
 li[data-task='<'] > p > input:checked {
   color: var(--text-faint);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z' clip-rule='evenodd' /%3E%3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd' /%3E%3C/svg%3E");
 }
 input[data-task='?']:checked,
@@ -972,11 +977,11 @@ li[data-task='-'] > p > input:checked {
   color: var(--text-faint);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E");
 }
-body.enable-alternative-checkboxes:not(.tasks) .markdown-preview-view ul li[data-task='-'].task-list-item.is-checked,
-body.enable-alternative-checkboxes:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:is([data-task='-']),
-body.enable-alternative-checkboxes:not(.tasks) li[data-task='-'].task-list-item.is-checked {
+.markdown-preview-view ul li[data-task='-'].task-list-item.is-checked,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:is([data-task='-']),
+li[data-task='-'].task-list-item.is-checked {
   color: var(--text-faint);
-  text-decoration: line-through solid var(--text-faint) 1px;
+  text-decoration: line-through;
 }
 input[data-task='*']:checked,
 li[data-task='*'] > input:checked,
